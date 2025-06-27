@@ -2,30 +2,8 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { SERVICES, PRODUCTS } from '@/lib/constants';
-import { ArrowRight, Star, ThumbsUp, Heart, Award, Briefcase, Lightbulb } from 'lucide-react';
+import { ArrowRight, Award, Briefcase, Lightbulb } from 'lucide-react';
 import Image from 'next/image';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-
-const testimonials = [
-  {
-    name: 'John Doe',
-    title: 'CEO, TechCorp',
-    avatar: 'https://placehold.co/100x100.png',
-    testimonial: 'Siddas Technologies transformed our digital presence. Their custom solution streamlined our operations and boosted our efficiency by 40%. A truly dedicated and expert team!',
-  },
-  {
-    name: 'Jane Smith',
-    title: 'COO, Innovate LLC',
-    avatar: 'https://placehold.co/100x100.png',
-    testimonial: 'The e-commerce platform they built for us is robust, scalable, and user-friendly. Our online sales have doubled since launch. We couldn\'t be happier with the results.',
-  },
-  {
-    name: 'Samuel Green',
-    title: 'CTO, FutureGadgets',
-    avatar: 'https://placehold.co/100x100.png',
-    testimonial: 'Their cloud consultancy was a game-changer. They helped us optimize our AWS infrastructure, resulting in significant cost savings and improved performance. Highly recommended!',
-  },
-];
 
 const differentiators = [
     {
@@ -161,30 +139,26 @@ export default function Home() {
 
       <section className="w-full py-20 md:py-24 bg-card">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline text-primary">What Our Clients Say</h2>
-             <p className="mt-4 text-lg text-muted-foreground">
-              We are proud to have partnered with amazing businesses. Here's what they think about our work.
+          <div className="max-w-4xl mx-auto text-center bg-primary/5 rounded-lg p-12 shadow-inner">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline text-primary">
+              Ready to Start Your Next Project?
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+              We are here to help you navigate the complexities of technology and turn your ideas into powerful solutions. Let's build the future together.
             </p>
-          </div>
-          <div className="mt-16 grid gap-8 md:grid-cols-3">
-            {testimonials.map((testimonial) => (
-              <Card key={testimonial.name}>
-                <CardContent className="pt-6">
-                  <p className="italic text-muted-foreground">"{testimonial.testimonial}"</p>
-                  <div className="mt-4 flex items-center gap-4">
-                    <Avatar>
-                      <AvatarImage src={testimonial.avatar} alt={testimonial.name} data-ai-hint="person portrait"/>
-                      <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <p className="font-semibold">{testimonial.name}</p>
-                      <p className="text-sm text-muted-foreground">{testimonial.title}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+            <div className="mt-8 flex justify-center gap-x-4">
+              <Button asChild size="lg">
+                <Link href="/contact">
+                  Contact Us
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <Link href="/services">
+                  Explore Our Services
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
