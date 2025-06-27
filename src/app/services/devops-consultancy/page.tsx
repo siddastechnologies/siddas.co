@@ -2,7 +2,6 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import { SERVICES } from '@/lib/constants';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { notFound } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -21,72 +20,77 @@ export default function DevOpsConsultancyPage() {
 
   return (
     <>
-      <div className="bg-card">
-        <div className="container mx-auto px-4 md:px-6 py-12 md:py-20">
+      <div className="py-16 md:py-24">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div className="order-2 md:order-1">
-              <h1 className="text-4xl font-headline font-bold text-primary sm:text-5xl">{service.title}</h1>
+            <div>
+              <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">{service.title}</h1>
               <p className="mt-4 text-lg text-muted-foreground">{service.details}</p>
             </div>
-            <div className="order-1 md:order-2">
+            <div>
               <Image
                 src={service.image}
                 alt={service.title}
                 width={600}
                 height={400}
                 data-ai-hint={service.dataAiHint}
-                className="rounded-lg shadow-lg w-full"
+                className="rounded-lg shadow-2xl w-full"
               />
             </div>
           </div>
-
-          <div className="mt-16 md:mt-24 grid md:grid-cols-2 gap-8 md:gap-12">
-            <Card>
-              <CardHeader>
-                <CardTitle className="font-headline text-2xl text-primary">Key Use Cases</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  {service.useCases.map((useCase) => (
-                    <li key={useCase} className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-accent flex-shrink-0 mt-1 mr-3" />
-                      <span>{useCase}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle className="font-headline text-2xl text-primary">Benefits</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  {service.benefits.map((benefit) => (
-                    <li key={benefit} className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-accent flex-shrink-0 mt-1 mr-3" />
-                      <span>{benefit}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
         </div>
       </div>
-      <section className="w-full py-16 md:py-20 bg-background">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-3xl font-headline font-bold text-primary">Ready to Discuss Your Project?</h2>
-          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Let's talk about how our expertise can help you achieve your goals. Reach out today for a consultation.
-          </p>
-          <div className="mt-8">
-            <Button asChild size="lg">
-              <Link href="/contact">
-                Get in Touch
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
+
+      <div className="py-16 md:py-24 bg-card">
+        <div className="container mx-auto px-4 md:px-6">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                  Our Approach & <span className="gradient-text">Value</span>
+                </h2>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+                <div className="gradient-border-card">
+                    <h3 className="font-bold text-2xl mb-4">Key Use Cases</h3>
+                    <ul className="space-y-3">
+                      {service.useCases.map((useCase) => (
+                        <li key={useCase} className="flex items-start">
+                          <CheckCircle className="h-5 w-5 text-accent flex-shrink-0 mt-1 mr-3" />
+                          <span>{useCase}</span>
+                        </li>
+                      ))}
+                    </ul>
+                </div>
+                <div className="gradient-border-card">
+                    <h3 className="font-bold text-2xl mb-4">Core Benefits</h3>
+                    <ul className="space-y-3">
+                      {service.benefits.map((benefit) => (
+                        <li key={benefit} className="flex items-start">
+                          <CheckCircle className="h-5 w-5 text-accent flex-shrink-0 mt-1 mr-3" />
+                          <span>{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                </div>
+            </div>
+        </div>
+      </div>
+      <section className="w-full py-20 md:py-24">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="max-w-5xl mx-auto text-center bg-gradient-to-r from-primary to-accent rounded-lg p-12 shadow-2xl">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline text-primary-foreground">
+              Ready to Accelerate Your Delivery Pipeline?
+            </h2>
+            <p className="mt-4 text-lg text-primary-foreground/80 max-w-2xl mx-auto">
+              Let's discuss how our DevOps expertise can streamline your operations and boost your development velocity. Reach out today for a consultation.
+            </p>
+            <div className="mt-8">
+              <Button asChild size="lg" variant="secondary">
+                <Link href="/contact">
+                  Get in Touch
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
