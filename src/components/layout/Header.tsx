@@ -56,7 +56,7 @@ export default function Header() {
   const pathname = usePathname();
 
   const renderDesktopNav = () => (
-    <nav className="hidden md:flex items-center gap-4 text-sm">
+    <nav className="hidden md:flex items-center gap-6 text-base">
       <NavLink href="/" label="Home" />
 
       <DropdownMenu>

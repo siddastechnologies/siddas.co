@@ -17,8 +17,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ['Epilogue', 'sans-serif'],
-        headline: ['Epilogue', 'sans-serif'],
+        body: ['Ubuntu', 'sans-serif'],
+        headline: ['Ubuntu', 'sans-serif'],
         code: ['monospace'],
       },
       colors: {
