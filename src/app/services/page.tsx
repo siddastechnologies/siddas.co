@@ -22,7 +22,7 @@ export default function ServicesPage() {
 
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
         {SERVICES.map((service) => (
-          <Card key={service.slug} className="flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+          <Card key={service.title} className="flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl">
             <CardHeader className="flex-row items-center gap-4 p-6">
               <div className="p-3 bg-primary/10 rounded-full">
                 <service.icon className="h-8 w-8 text-primary" />
@@ -33,10 +33,10 @@ export default function ServicesPage() {
               </div>
             </CardHeader>
             <CardContent className="flex-grow flex flex-col justify-between p-6 pt-0">
-               <p className="text-muted-foreground mb-6">{service.details.substring(0, 150)}...</p>
+               <p className="text-muted-foreground mb-6">{service.details ? `${service.details.substring(0, 150)}...` : 'Click to learn more about our specialized security services.'}</p>
               <Button asChild className="self-start">
-                <Link href={`/services/${service.slug}`}>
-                  View Details <ArrowRight className="ml-2 h-4 w-4" />
+                <Link href={service.href} target={service.external ? '_blank' : '_self'}>
+                  {service.external ? 'Visit Site' : 'View Details'} <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             </CardContent>
