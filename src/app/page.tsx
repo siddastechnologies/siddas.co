@@ -9,17 +9,17 @@ const differentiators = [
     {
         icon: Briefcase,
         title: 'Domain Expertise',
-        description: 'Deep industry knowledge allows us to build solutions that solve real-world business problems effectively.'
+        description: 'We speak your language. Our deep industry knowledge across various sectors means we understand your unique challenges and build solutions that deliver real-world value, not just code.'
     },
     {
         icon: Award,
         title: 'Proven Track Record',
-        description: 'We have a history of successful projects and satisfied clients across various industries.'
+        description: 'Our portfolio of successful projects and long-term client partnerships is a testament to our commitment to quality, reliability, and delivering on our promises.'
     },
     {
         icon: Lightbulb,
         title: 'Innovative Approach',
-        description: 'We stay at the forefront of technology to deliver cutting-edge solutions that give you a competitive edge.'
+        description: 'We are passionate about technology and continuously explore emerging trends to deliver innovative solutions that provide a lasting competitive advantage and future-proof your business.'
     }
 ];
 
@@ -30,10 +30,10 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-6 text-center">
           <div className="max-w-3xl mx-auto">
             <h1 className="text-4xl font-headline font-bold tracking-tight sm:text-5xl md:text-6xl text-primary">
-              Innovative Tech Solutions for a Digital World
+              Building Digital Futures: Your Vision, Engineered.
             </h1>
             <p className="mt-6 text-lg leading-8 text-muted-foreground">
-              At Siddas Technologies, we build custom software, e-commerce platforms, and cloud solutions that drive growth and efficiency for your business. We turn your vision into reality with technology that performs.
+              We are an innovation-driven software development partner, dedicated to building custom web, mobile, and cloud solutions that deliver tangible business results. We translate your complex challenges into powerful, scalable, and user-centric technology.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Button asChild size="lg">
@@ -55,7 +55,7 @@ export default function Home() {
           <div className="text-center max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline text-primary">Our Core Services</h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              We provide a comprehensive suite of technology services to meet your business needs.
+              From bespoke software to cloud optimization, our services are designed to address your most critical technology challenges and unlock new opportunities for growth.
             </p>
           </div>
           <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -91,7 +91,7 @@ export default function Home() {
           <div className="text-center max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline text-primary">Our Products</h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Powerful, off-the-shelf solutions to streamline your business operations.
+              Explore our suite of ready-to-deploy software products, designed to streamline complex operations and boost productivity from day one.
             </p>
           </div>
           <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">

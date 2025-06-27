@@ -11,17 +11,17 @@ const values = [
   {
     icon: Target,
     title: 'Our Mission',
-    description: 'To empower businesses with transformative technology solutions, driving growth, efficiency, and innovation. We are committed to delivering excellence and building long-lasting partnerships with our clients.',
+    description: 'To empower businesses with transformative technology solutions that drive measurable growth, efficiency, and innovation. We are architects of digital success, committed to delivering excellence and building lasting partnerships.',
   },
   {
     icon: Eye,
     title: 'Our Vision',
-    description: 'To be a leading technology partner recognized for our expertise, creativity, and dedication to client success. We aim to shape the future of digital experiences through cutting-edge software and strategic consultancy.',
+    description: 'To be the most trusted technology partner for businesses seeking to innovate and lead in their industries. We envision a future where our solutions power seamless digital experiences and drive progress.',
   },
   {
     icon: Handshake,
     title: 'Our Values',
-    description: 'We believe in integrity, collaboration, and continuous learning. Our team is passionate about technology and dedicated to delivering the highest quality of work, ensuring our clients achieve their business objectives.',
+    description: 'Integrity, partnership, and a passion for problem-solving are the cornerstones of our work. We foster a culture of collaboration and continuous learning to ensure we not only meet but exceed our clients\' expectations.',
   },
 ];
 
@@ -34,10 +34,10 @@ export default function AboutPage() {
             <div>
               <h1 className="text-4xl font-headline font-bold text-primary sm:text-5xl">About Siddas Technologies</h1>
               <p className="mt-4 text-lg text-muted-foreground">
-                We are a team of passionate technologists, designers, and strategists dedicated to helping businesses thrive in the digital age. Founded on the principle of innovation and client-centricity, Siddas Technologies has been delivering exceptional software solutions since our inception.
+                At Siddas Technologies, we believe technology should be an enabler of ambition. We are more than just a software company; we are your dedicated technology partner, committed to understanding your vision and translating it into powerful, elegant, and scalable digital solutions.
               </p>
               <p className="mt-4 text-lg text-muted-foreground">
-                Our expertise spans across custom application development, e-commerce, cloud computing, and DevOps, allowing us to provide comprehensive solutions that address complex business challenges.
+                Our journey began with a simple idea: to build technology with a purpose and to forge lasting partnerships built on trust, transparency, and shared success.
               </p>
             </div>
             <div>

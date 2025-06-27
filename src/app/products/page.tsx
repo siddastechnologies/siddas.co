@@ -16,7 +16,7 @@ export default function ProductsPage() {
       <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
         <h1 className="text-4xl font-headline font-bold tracking-tight text-primary sm:text-5xl">Our Products</h1>
         <p className="mt-4 text-lg text-muted-foreground">
-          Powerful, ready-to-deploy software solutions designed to streamline your operations and enhance productivity.
+          Discover our suite of powerful, ready-to-deploy software products. Each solution is crafted to solve complex business challenges, streamline operations, and boost productivity from day one.
         </p>
       </div>
 

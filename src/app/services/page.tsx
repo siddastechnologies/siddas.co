@@ -16,7 +16,7 @@ export default function ServicesPage() {
       <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
         <h1 className="text-4xl font-headline font-bold tracking-tight text-primary sm:text-5xl">Our Services</h1>
         <p className="mt-4 text-lg text-muted-foreground">
-          We offer a wide range of technology solutions to empower your business. Discover how we can help you achieve your goals.
+          We deliver a comprehensive suite of technology services designed to empower your business for the digital age. Explore how our expertise can translate your vision into reality and drive sustainable growth.
         </p>
       </div>
 
