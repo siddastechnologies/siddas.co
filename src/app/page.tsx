@@ -37,7 +37,7 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">
-              What We <span className="gradient-text">Offer</span>
+              Our Core <span className="gradient-text">Services</span>
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
               From bespoke software to cloud-native architectures, our services are designed to address your most critical technology challenges and unlock new opportunities for growth.
@@ -45,19 +45,19 @@ export default function Home() {
           </div>
           <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICES.filter(s => !s.external).slice(0, 3).map((service) => (
-              <div key={service.slug} className="gradient-border-card text-center">
-                <div className="flex flex-col items-center">
+              <div key={service.slug} className="gradient-border-card text-center flex flex-col">
+                <div className="flex-grow flex flex-col items-center">
                     <div className="p-4 bg-secondary rounded-full">
                       <service.icon className="h-8 w-8 text-primary" />
                     </div>
                     <h3 className="mt-6 text-xl font-bold font-headline">{service.title}</h3>
                     <p className="mt-2 text-muted-foreground flex-grow">{service.description}</p>
-                    <Button asChild variant="link" className="mt-4">
-                        <Link href={service.href}>
-                          Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
-                    </Button>
                 </div>
+                <Button asChild variant="link" className="mt-4">
+                    <Link href={service.href}>
+                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                </Button>
               </div>
             ))}
           </div>
@@ -68,8 +68,44 @@ export default function Home() {
             </div>
         </div>
       </section>
+
+       <section className="w-full py-20 md:py-24">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">
+              Featured <span className="gradient-text">Products</span>
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Accelerate your operations with our suite of ready-to-deploy, robust software solutions, crafted for excellence and efficiency.
+            </p>
+          </div>
+          <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {PRODUCTS.slice(0, 3).map((product) => (
+              <div key={product.slug} className="gradient-border-card text-center flex flex-col">
+                <div className="flex-grow flex flex-col items-center">
+                    <div className="p-4 bg-secondary rounded-full">
+                      <product.icon className="h-8 w-8 text-primary" />
+                    </div>
+                    <h3 className="mt-6 text-xl font-bold font-headline">{product.title}</h3>
+                    <p className="mt-2 text-muted-foreground flex-grow">{product.description}</p>
+                </div>
+                 <Button asChild variant="link" className="mt-4">
+                    <Link href={`/products/${product.slug}`}>
+                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                </Button>
+              </div>
+            ))}
+          </div>
+           <div className="text-center mt-12">
+                <Button asChild size="lg" variant="outline">
+                    <Link href="/products">View All Products</Link>
+                </Button>
+            </div>
+        </div>
+      </section>
       
-      <section className="w-full py-20 md:py-24">
+      <section className="w-full py-20 md:py-24 bg-card/50">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -107,7 +143,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full py-20 md:py-24 bg-card/50">
+      <section className="w-full py-20 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">

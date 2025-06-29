@@ -1,5 +1,9 @@
 import type { LucideIcon } from 'lucide-react';
-import { Code, ShoppingCart, Cloud, GitMerge, ShieldCheck, Siren, Users, Library, BookOpen, Award, Briefcase, Lightbulb } from 'lucide-react';
+import { 
+  Code, ShoppingCart, Cloud, GitMerge, ShieldCheck, Siren, Users, Library, BookOpen, 
+  Award, Briefcase, Lightbulb, Search, PenTool, Rocket, Workflow, Layers, GanttChart, Target,
+  Building, GraduationCap, BriefcaseBusiness
+} from 'lucide-react';
 
 export const NAV_LINKS = [
   { href: '/', label: 'Home' },
@@ -31,6 +35,21 @@ export const TECH_STACK = [
   'Next.js', 'React', 'TypeScript', 'Node.js', 'Python', 'AWS', 'Azure', 'OCI', 'Docker', 'Kubernetes'
 ]
 
+const devProcess = [
+  { icon: Search, title: 'Discover', description: 'We start by understanding your vision, goals, and technical needs through in-depth workshops.' },
+  { icon: PenTool, title: 'Design', description: 'Our team creates intuitive UI/UX designs and robust system architecture plans for your approval.' },
+  { icon: Code, title: 'Develop', description: 'Following agile methodologies, we build your application with clean, efficient, and scalable code.' },
+  { icon: Rocket, title: 'Deploy', description: 'We handle the seamless deployment to your chosen infrastructure and provide ongoing support.' },
+];
+
+const devopsProcess = [
+    { icon: Search, title: 'Assess', description: 'We evaluate your current development pipeline, tools, and culture to identify bottlenecks and opportunities for improvement.' },
+    { icon: GanttChart, title: 'Strategize', description: 'We design a detailed roadmap for CI/CD implementation, infrastructure automation, and cultural adoption.' },
+    { icon: Workflow, title: 'Implement', description: 'Our experts configure and automate your toolchains, pipelines, and infrastructure using best-in-class technologies.' },
+    { icon: Layers, title: 'Optimize', description: 'We provide ongoing support to monitor, refine, and optimize your DevOps practices for continuous improvement.' },
+];
+
+
 type Service = {
   slug: string;
   title: string;
@@ -43,6 +62,12 @@ type Service = {
   dataAiHint: string;
   href: string;
   external?: boolean;
+  process: {
+    title: string;
+    description: string;
+    icon: LucideIcon;
+  }[];
+  tech: string[];
 };
 
 export const SERVICES: Service[] = [
@@ -56,7 +81,9 @@ export const SERVICES: Service[] = [
     benefits: ['Perfectly aligned with your workflows', 'Scalable architecture for future growth', 'Full intellectual property ownership', 'Seamless integration with existing systems'],
     image: 'https://placehold.co/1200x600.png',
     dataAiHint: 'software development code',
-    href: '/services/custom-development'
+    href: '/services/custom-development',
+    process: devProcess,
+    tech: ['Next.js', 'React Native', 'Node.js', 'Python/Django', 'PostgreSQL', 'MongoDB']
   },
   {
     slug: 'ecommerce-development',
@@ -68,7 +95,9 @@ export const SERVICES: Service[] = [
     benefits: ['Secure payment gateway integrations', 'Mobile-first, responsive design', 'Advanced inventory & order management', 'Optimized for search engine visibility (SEO)'],
     image: 'https://placehold.co/1200x600.png',
     dataAiHint: 'online shopping cart',
-    href: '/services/ecommerce-development'
+    href: '/services/ecommerce-development',
+    process: devProcess,
+    tech: ['Shopify', 'Magento', 'WooCommerce', 'Headless Commerce', 'Stripe/PayPal Integration']
   },
   {
     slug: 'cloud-consultancy',
@@ -80,7 +109,9 @@ export const SERVICES: Service[] = [
     benefits: ['Significant reduction in infrastructure costs', 'Enhanced security posture and compliance', 'Improved scalability and operational resilience', 'Accelerated time-to-market for applications'],
     image: 'https://placehold.co/1200x600.png',
     dataAiHint: 'cloud infrastructure diagram',
-    href: '/services/cloud-consultancy'
+    href: '/services/cloud-consultancy',
+    process: devopsProcess,
+    tech: ['AWS (Amazon Web Services)', 'Microsoft Azure', 'Oracle Cloud Infrastructure (OCI)', 'Google Cloud Platform (GCP)']
   },
   {
     slug: 'devops-consultancy',
@@ -92,7 +123,9 @@ export const SERVICES: Service[] = [
     benefits: ['Dramatically accelerated development cycles', 'Increased deployment frequency and reliability', 'Improved cross-team collaboration', 'Enhanced application quality and system stability'],
     image: 'https://placehold.co/1200x600.png',
     dataAiHint: 'workflow automation chart',
-    href: '/services/devops-consultancy'
+    href: '/services/devops-consultancy',
+    process: devopsProcess,
+    tech: ['Jenkins', 'GitLab CI', 'Docker', 'Kubernetes', 'Terraform', 'Prometheus']
   },
   {
     slug: 'cyber-security',
@@ -105,7 +138,9 @@ export const SERVICES: Service[] = [
     image: '',
     dataAiHint: '',
     href: 'https://secureaware.siddas.co',
-    external: true
+    external: true,
+    process: [],
+    tech: [],
   },
   {
     slug: 'phishing-simulation',
@@ -118,7 +153,9 @@ export const SERVICES: Service[] = [
     image: '',
     dataAiHint: '',
     href: 'https://secureaware.siddas.co',
-    external: true
+    external: true,
+    process: [],
+    tech: [],
   }
 ];
 
@@ -132,6 +169,8 @@ type Product = {
   benefits: string[];
   image: string;
   dataAiHint: string;
+  whoIsFor: { title: string; icon: LucideIcon; }[];
+  gallery: { src: string; alt: string; dataAiHint: string; }[];
 };
 
 export const PRODUCTS: Product[] = [
@@ -144,7 +183,17 @@ export const PRODUCTS: Product[] = [
         useCases: ['Centralized Employee Data Management', 'Automated Payroll & Compensation', 'Leave & Attendance Tracking', 'Performance & Goal Management', 'Recruitment & Applicant Tracking'],
         benefits: ['Boosted HR operational efficiency', 'Significant reduction in administrative overhead', 'Enhanced employee experience and engagement', 'Actionable insights from HR analytics'],
         image: 'https://placehold.co/1200x600.png',
-        dataAiHint: 'human resources dashboard'
+        dataAiHint: 'human resources dashboard',
+        whoIsFor: [
+          { title: 'HR Managers', icon: Briefcase },
+          { title: 'Small & Medium Businesses', icon: Building },
+          { title: 'Growing Startups', icon: Rocket }
+        ],
+        gallery: [
+          { src: 'https://placehold.co/600x400.png', alt: 'HRMS Dashboard', dataAiHint: 'dashboard analytics chart' },
+          { src: 'https://placehold.co/600x400.png', alt: 'Employee Profile', dataAiHint: 'user profile page' },
+          { src: 'https://placehold.co/600x400.png', alt: 'Payroll Processing', dataAiHint: 'financial data report' },
+        ]
     },
     {
         slug: 'library-management-system',
@@ -155,7 +204,17 @@ export const PRODUCTS: Product[] = [
         useCases: ['Digital Cataloging & Metadata Management', 'Automated Circulation (Check-in/Check-out)', 'Patron & Membership Management', 'Fee & Fine Automation', 'Insightful Reporting & Analytics'],
         benefits: ['Streamlined and simplified library operations', 'Enhanced search and discovery for patrons', 'Accurate, real-time tracking of all resources', 'Effortless generation of reports and statistics'],
         image: 'https://placehold.co/1200x600.png',
-        dataAiHint: 'library books aisle'
+        dataAiHint: 'library books aisle',
+        whoIsFor: [
+            { title: 'Academic Institutions', icon: GraduationCap },
+            { title: 'Public Libraries', icon: Library },
+            { title: 'Corporate Libraries', icon: Building }
+        ],
+        gallery: [
+          { src: 'https://placehold.co/600x400.png', alt: 'Library Catalog Search', dataAiHint: 'search results page' },
+          { src: 'https://placehold.co/600x400.png', alt: 'Patron Management', dataAiHint: 'user list interface' },
+          { src: 'https://placehold.co/600x400.png', alt: 'Circulation Desk', dataAiHint: 'data entry form' },
+        ]
     },
     {
         slug: 'learning-management-system',
@@ -166,6 +225,16 @@ export const PRODUCTS: Product[] = [
         useCases: ['Corporate Training & Employee Development', 'Online Academic Course Delivery', 'Professional Certification Programs', 'Compliance & Onboarding Training'],
         benefits: ['Centralized repository for all learning content', 'Flexible, on-demand access to training', 'Automated progress tracking and reporting', 'Engaging interactive content delivery'],
         image: 'https://placehold.co/1200x600.png',
-        dataAiHint: 'online learning screen'
+        dataAiHint: 'online learning screen',
+        whoIsFor: [
+            { title: 'Corporate Trainers', icon: BriefcaseBusiness },
+            { title: 'Educational Institutions', icon: GraduationCap },
+            { title: 'Certification Bodies', icon: Award }
+        ],
+        gallery: [
+          { src: 'https://placehold.co/600x400.png', alt: 'LMS Course Dashboard', dataAiHint: 'course list grid' },
+          { src: 'https://placehold.co/600x400.png', alt: 'Video Lesson Player', dataAiHint: 'video player interface' },
+          { src: 'https://placehold.co/600x400.png', alt: 'Quiz & Assessment', dataAiHint: 'multiple choice quiz' },
+        ]
     }
 ]

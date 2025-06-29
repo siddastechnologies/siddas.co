@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import type { Metadata } from 'next';
-import { ArrowRight, CheckCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle, Search, PenTool, Code, Rocket } from 'lucide-react';
 import { SERVICES } from '@/lib/constants';
 import { notFound } from 'next/navigation';
 import { Button } from '@/components/ui/button';
@@ -74,6 +74,53 @@ export default function CustomDevelopmentPage() {
             </div>
         </div>
       </div>
+
+      <section className="w-full py-20 md:py-24">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">
+              Our Development <span className="gradient-text">Process</span>
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              We follow a structured, four-phase process to ensure your project is delivered on time, on budget, and to the highest quality standards.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-4 gap-8">
+            {service.process.map((step) => (
+              <div key={step.title} className="text-center">
+                <div className="inline-block p-4 bg-secondary rounded-full mb-4 ring-2 ring-primary/20">
+                  <step.icon className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground">{step.title}</h3>
+                <p className="mt-2 text-muted-foreground">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full py-20 md:py-24 bg-card">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">
+              Technology <span className="gradient-text">Spotlight</span>
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              We leverage a modern, robust technology stack to build scalable, secure, and high-performance solutions.
+            </p>
+          </div>
+          <div className="mt-12 max-w-4xl mx-auto">
+            <div className="flex flex-wrap justify-center gap-4">
+              {service.tech.map((tech) => (
+                <div key={tech} className="bg-secondary text-secondary-foreground font-medium py-2 px-4 rounded-lg shadow-sm">
+                  {tech}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="w-full py-20 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto text-center bg-gradient-to-r from-primary to-accent rounded-lg p-12 shadow-2xl">
