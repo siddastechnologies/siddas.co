@@ -1,20 +1,24 @@
 'use client';
 
 import Link from 'next/link';
+import * as React from 'react';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { Menu, Mountain, ChevronDown, X } from 'lucide-react';
+import { Menu, Mountain, X } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { NAV_LINKS, SERVICES, PRODUCTS } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from '@/components/ui/navigation-menu';
 import {
   Accordion,
   AccordionContent,
@@ -51,54 +55,104 @@ const NavLink = ({
   );
 };
 
+const ListItem = React.forwardRef<
+  React.ElementRef<'a'>,
+  React.ComponentPropsWithoutRef<'a'>
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+            className
+          )}
+          {...props}
+        >
+          <div className="text-base font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  );
+});
+ListItem.displayName = 'ListItem';
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
   const renderDesktopNav = () => (
-    <nav className="hidden md:flex items-center gap-6 text-base">
-      <NavLink href="/" label="Home" />
+    <nav className="hidden md:flex items-center gap-1">
+      <NavigationMenu>
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <Link href="/" legacyBehavior passHref>
+              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-base', pathname === '/' ? 'text-primary' : 'text-foreground/80' )}>
+                Home
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+          
+          <NavigationMenuItem>
+            <NavigationMenuTrigger className={cn('bg-transparent text-base', pathname.startsWith('/services') ? 'text-primary' : 'text-foreground/80')}>
+              Services
+            </NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                {SERVICES.map((service) => (
+                  <ListItem
+                    key={service.title}
+                    title={service.title}
+                    href={service.href}
+                    target={service.external ? '_blank' : '_self'}
+                  >
+                    {service.description}
+                  </ListItem>
+                ))}
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          
+          <NavigationMenuItem>
+            <NavigationMenuTrigger className={cn('bg-transparent text-base', pathname.startsWith('/products') ? 'text-primary' : 'text-foreground/80')}>
+              Products
+            </NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                {PRODUCTS.map((product) => (
+                  <ListItem
+                    key={product.title}
+                    title={product.title}
+                    href={`/products/${product.slug}`}
+                  >
+                    {product.description}
+                  </ListItem>
+                ))}
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
 
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="ghost" className={cn('transition-colors hover:text-primary px-3 gap-1 font-medium', (pathname.startsWith('/services') ? 'text-primary' : 'text-foreground/80'))}>
-            Services <ChevronDown className="h-4 w-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-64">
-          <DropdownMenuItem asChild>
-            <Link href="/services">All Services</Link>
-          </DropdownMenuItem>
-          {SERVICES.map((service) => (
-            <DropdownMenuItem key={service.title} asChild>
-              <Link href={service.href} target={service.external ? '_blank' : '_self'}>
-                {service.title}
-              </Link>
-            </DropdownMenuItem>
-          ))}
-        </DropdownMenuContent>
-      </DropdownMenu>
+          <NavigationMenuItem>
+            <Link href="/about" legacyBehavior passHref>
+              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-base', pathname === '/about' ? 'text-primary' : 'text-foreground/80' )}>
+                About Us
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
 
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="ghost" className={cn('transition-colors hover:text-primary px-3 gap-1 font-medium', (pathname.startsWith('/products') ? 'text-primary' : 'text-foreground/80'))}>
-            Products <ChevronDown className="h-4 w-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-64">
-           <DropdownMenuItem asChild>
-            <Link href="/products">All Products</Link>
-          </DropdownMenuItem>
-          {PRODUCTS.map((product) => (
-            <DropdownMenuItem key={product.title} asChild>
-              <Link href={`/products/${product.slug}`}>{product.title}</Link>
-            </DropdownMenuItem>
-          ))}
-        </DropdownMenuContent>
-      </DropdownMenu>
-
-      <NavLink href="/about" label="About Us" />
-      <NavLink href="/contact" label="Contact" />
+          <NavigationMenuItem>
+            <Link href="/contact" legacyBehavior passHref>
+              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-base', pathname === '/contact' ? 'text-primary' : 'text-foreground/80')}>
+                Contact
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
     </nav>
   );
 
