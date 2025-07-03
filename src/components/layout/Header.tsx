@@ -59,12 +59,13 @@ const NavLink = ({
 const ListItem = React.forwardRef<
   React.ElementRef<'a'>,
   React.ComponentPropsWithoutRef<'a'>
->(({ className, title, children, ...props }, ref) => {
+>(({ className, title, children, href, ...props }, ref) => {
   return (
     <li>
       <NavigationMenuLink asChild>
-        <a
-          ref={ref}
+        <Link
+          href={href || '#'}
+          ref={ref as React.Ref<HTMLAnchorElement>}
           className={cn(
             'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
             className
@@ -75,7 +76,7 @@ const ListItem = React.forwardRef<
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
-        </a>
+        </Link>
       </NavigationMenuLink>
     </li>
   );
@@ -91,11 +92,11 @@ export default function Header() {
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <Link href="/" legacyBehavior passHref>
-              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/' ? 'text-primary' : 'text-foreground/80' )}>
+            <NavigationMenuLink asChild>
+              <Link href="/" className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/' ? 'text-primary' : 'text-foreground/80' )}>
                 Home
-              </NavigationMenuLink>
-            </Link>
+              </Link>
+            </NavigationMenuLink>
           </NavigationMenuItem>
 
           <NavigationMenuItem>
@@ -113,7 +114,7 @@ export default function Header() {
                <ul className="grid w-[600px] gap-3 p-4 md:w-[700px] md:grid-cols-2 lg:w-[800px]">
                  <li className="col-span-2">
                     <NavigationMenuLink asChild>
-                      <a
+                      <Link
                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                         href="/services"
                       >
@@ -123,7 +124,7 @@ export default function Header() {
                         <p className="text-sm leading-tight text-muted-foreground">
                          From custom apps to cloud optimization, we provide solutions to power your growth.
                         </p>
-                      </a>
+                      </Link>
                     </NavigationMenuLink>
                   </li>
                   {SERVICES.filter((s) => !s.external).map((service) => (
@@ -154,7 +155,7 @@ export default function Header() {
                <ul className="grid w-[600px] gap-3 p-4 md:w-[700px] md:grid-cols-2 lg:w-[800px]">
                   <li className="col-span-2">
                     <NavigationMenuLink asChild>
-                      <a
+                      <Link
                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                         href="/products"
                       >
@@ -164,7 +165,7 @@ export default function Header() {
                         <p className="text-sm leading-tight text-muted-foreground">
                           Ready-to-deploy solutions to streamline your business operations.
                         </p>
-                      </a>
+                      </Link>
                     </NavigationMenuLink>
                   </li>
                   {PRODUCTS.map((product) => (
@@ -181,19 +182,19 @@ export default function Header() {
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <Link href="/about" legacyBehavior passHref>
-              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/about' ? 'text-primary' : 'text-foreground/80' )}>
+            <NavigationMenuLink asChild>
+              <Link href="/about" className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/about' ? 'text-primary' : 'text-foreground/80' )}>
                 About Us
-              </NavigationMenuLink>
-            </Link>
+              </Link>
+            </NavigationMenuLink>
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <Link href="/contact" legacyBehavior passHref>
-              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/contact' ? 'text-primary' : 'text-foreground/80' )}>
+            <NavigationMenuLink asChild>
+              <Link href="/contact" className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/contact' ? 'text-primary' : 'text-foreground/80' )}>
                 Contact
-              </NavigationMenuLink>
-            </Link>
+              </Link>
+            </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
