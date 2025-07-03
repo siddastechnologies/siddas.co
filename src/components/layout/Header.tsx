@@ -91,25 +91,42 @@ export default function Header() {
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-             <Link href="/" legacyBehavior={false} passHref>
-              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/' ? 'text-primary' : 'text-foreground/80' )}>
-                Home
-              </NavigationMenuLink>
+            <Link
+              href="/"
+              className={cn(
+                navigationMenuTriggerStyle(),
+                'bg-transparent text-lg',
+                pathname === '/' ? 'text-primary' : 'text-foreground/80'
+              )}
+            >
+              Home
             </Link>
           </NavigationMenuItem>
-          
+
           <NavigationMenuItem>
-            <NavigationMenuTrigger className={cn('bg-transparent text-lg', pathname.startsWith('/services') ? 'text-primary' : 'text-foreground/80')}>
+            <NavigationMenuTrigger
+              className={cn(
+                'bg-transparent text-lg',
+                pathname.startsWith('/services')
+                  ? 'text-primary'
+                  : 'text-foreground/80'
+              )}
+            >
               Services
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <div className="p-4 md:w-[600px] lg:w-[750px]">
                 <div className="grid grid-cols-2 gap-x-6 gap-y-4">
                   <div className="col-span-2">
-                     <h3 className="font-bold text-lg text-foreground mb-2">Our Core Services</h3>
-                     <p className="text-sm text-muted-foreground">From custom apps to cloud optimization, we provide solutions to power your growth.</p>
+                    <h3 className="font-bold text-lg text-foreground mb-2">
+                      Our Core Services
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      From custom apps to cloud optimization, we provide
+                      solutions to power your growth.
+                    </p>
                   </div>
-                  {SERVICES.filter(s => !s.external).map((service) => (
+                  {SERVICES.filter((s) => !s.external).map((service) => (
                     <ListItem
                       key={service.slug}
                       title={service.title}
@@ -119,25 +136,37 @@ export default function Header() {
                     </ListItem>
                   ))}
                   <div className="col-span-2 border-t border-border mt-2 pt-4">
-                     <ListItem href="/services" title="View All Services">
-                       Explore our full range of technology solutions.
-                     </ListItem>
+                    <ListItem href="/services" title="View All Services">
+                      Explore our full range of technology solutions.
+                    </ListItem>
                   </div>
                 </div>
               </div>
             </NavigationMenuContent>
           </NavigationMenuItem>
-          
+
           <NavigationMenuItem>
-            <NavigationMenuTrigger className={cn('bg-transparent text-lg', pathname.startsWith('/products') ? 'text-primary' : 'text-foreground/80')}>
+            <NavigationMenuTrigger
+              className={cn(
+                'bg-transparent text-lg',
+                pathname.startsWith('/products')
+                  ? 'text-primary'
+                  : 'text-foreground/80'
+              )}
+            >
               Products
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-               <div className="p-4 md:w-[600px] lg:w-[750px]">
-                 <div className="grid grid-cols-2 gap-x-6 gap-y-4">
-                    <div className="col-span-2">
-                     <h3 className="font-bold text-lg text-foreground mb-2">Our Software Products</h3>
-                     <p className="text-sm text-muted-foreground">Ready-to-deploy solutions to streamline your business operations.</p>
+              <div className="p-4 md:w-[600px] lg:w-[750px]">
+                <div className="grid grid-cols-2 gap-x-6 gap-y-4">
+                  <div className="col-span-2">
+                    <h3 className="font-bold text-lg text-foreground mb-2">
+                      Our Software Products
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      Ready-to-deploy solutions to streamline your business
+                      operations.
+                    </p>
                   </div>
                   {PRODUCTS.map((product) => (
                     <ListItem
@@ -149,28 +178,38 @@ export default function Header() {
                     </ListItem>
                   ))}
                   <div className="col-span-2 border-t border-border mt-2 pt-4">
-                     <ListItem href="/products" title="View All Products">
-                       Browse our full suite of software solutions.
-                     </ListItem>
+                    <ListItem href="/products" title="View All Products">
+                      Browse our full suite of software solutions.
+                    </ListItem>
                   </div>
-                 </div>
-               </div>
+                </div>
+              </div>
             </NavigationMenuContent>
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <Link href="/about" legacyBehavior={false} passHref>
-              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/about' ? 'text-primary' : 'text-foreground/80' )}>
-                About Us
-              </NavigationMenuLink>
+            <Link
+              href="/about"
+              className={cn(
+                navigationMenuTriggerStyle(),
+                'bg-transparent text-lg',
+                pathname === '/about' ? 'text-primary' : 'text-foreground/80'
+              )}
+            >
+              About Us
             </Link>
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <Link href="/contact" legacyBehavior={false} passHref>
-              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/contact' ? 'text-primary' : 'text-foreground/80')}>
-                Contact
-              </NavigationMenuLink>
+            <Link
+              href="/contact"
+              className={cn(
+                navigationMenuTriggerStyle(),
+                'bg-transparent text-lg',
+                pathname === '/contact' ? 'text-primary' : 'text-foreground/80'
+              )}
+            >
+              Contact
             </Link>
           </NavigationMenuItem>
         </NavigationMenuList>
@@ -205,37 +244,97 @@ export default function Header() {
               </SheetTrigger>
             </div>
             <nav className="flex-grow p-4">
-              <NavLink href="/" label="Home" onClick={() => setIsOpen(false)} className="block text-lg py-2"/>
-              
+              <NavLink
+                href="/"
+                label="Home"
+                onClick={() => setIsOpen(false)}
+                className="block text-lg py-2"
+              />
+
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="services" className="border-b-0">
-                  <AccordionTrigger className={cn("text-lg font-medium hover:no-underline transition-colors hover:text-primary py-2", (pathname.startsWith('/services') ? 'text-primary' : 'text-foreground/80'))}>Services</AccordionTrigger>
+                  <AccordionTrigger
+                    className={cn(
+                      'text-lg font-medium hover:no-underline transition-colors hover:text-primary py-2',
+                      pathname.startsWith('/services')
+                        ? 'text-primary'
+                        : 'text-foreground/80'
+                    )}
+                  >
+                    Services
+                  </AccordionTrigger>
                   <AccordionContent className="pl-4">
                     <div className="flex flex-col gap-2 mt-2">
-                      <NavLink href="/services" label="All Services" onClick={() => setIsOpen(false)} className="block text-base py-1" />
-                      {SERVICES.map(s => <Link key={s.slug} href={s.href} target={s.external ? '_blank' : '_self'} onClick={() => setIsOpen(false)} className="block text-foreground/70 hover:text-primary text-base py-1">{s.title}</Link>)}
+                      <NavLink
+                        href="/services"
+                        label="All Services"
+                        onClick={() => setIsOpen(false)}
+                        className="block text-base py-1"
+                      />
+                      {SERVICES.map((s) => (
+                        <Link
+                          key={s.slug}
+                          href={s.href}
+                          target={s.external ? '_blank' : '_self'}
+                          onClick={() => setIsOpen(false)}
+                          className="block text-foreground/70 hover:text-primary text-base py-1"
+                        >
+                          {s.title}
+                        </Link>
+                      ))}
                     </div>
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="products" className="border-b-0">
-                   <AccordionTrigger className={cn("text-lg font-medium hover:no-underline transition-colors hover:text-primary py-2", (pathname.startsWith('/products') ? 'text-primary' : 'text-foreground/80'))}>Products</AccordionTrigger>
+                  <AccordionTrigger
+                    className={cn(
+                      'text-lg font-medium hover:no-underline transition-colors hover:text-primary py-2',
+                      pathname.startsWith('/products')
+                        ? 'text-primary'
+                        : 'text-foreground/80'
+                    )}
+                  >
+                    Products
+                  </AccordionTrigger>
                   <AccordionContent className="pl-4">
-                     <div className="flex flex-col gap-2 mt-2">
-                       <NavLink href="/products" label="All Products" onClick={() => setIsOpen(false)} className="block text-base py-1" />
-                      {PRODUCTS.map(p => <Link key={p.slug} href={`/products/${p.slug}`} onClick={() => setIsOpen(false)} className="block text-foreground/70 hover:text-primary text-base py-1">{p.title}</Link>)}
+                    <div className="flex flex-col gap-2 mt-2">
+                      <NavLink
+                        href="/products"
+                        label="All Products"
+                        onClick={() => setIsOpen(false)}
+                        className="block text-base py-1"
+                      />
+                      {PRODUCTS.map((p) => (
+                        <Link
+                          key={p.slug}
+                          href={`/products/${p.slug}`}
+                          onClick={() => setIsOpen(false)}
+                          className="block text-foreground/70 hover:text-primary text-base py-1"
+                        >
+                          {p.title}
+                        </Link>
+                      ))}
                     </div>
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
 
-              <NavLink href="/about" label="About Us" onClick={() => setIsOpen(false)} className="block text-lg py-2"/>
-              <NavLink href="/contact" label="Contact" onClick={() => setIsOpen(false)} className="block text-lg py-2"/>
+              <NavLink
+                href="/about"
+                label="About Us"
+                onClick={() => setIsOpen(false)}
+                className="block text-lg py-2"
+              />
+              <NavLink
+                href="/contact"
+                label="Contact"
+                onClick={() => setIsOpen(false)}
+                className="block text-lg py-2"
+              />
             </nav>
             <div className="p-4 border-t">
-               <Button asChild size="lg" className="w-full">
-                <Link href="/contact">
-                  Schedule a Consultation
-                </Link>
+              <Button asChild size="lg" className="w-full">
+                <Link href="/contact">Schedule a Consultation</Link>
               </Button>
             </div>
           </div>
@@ -247,7 +346,10 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-        <Link href="/" className="flex items-center gap-2 font-bold text-xl text-foreground">
+        <Link
+          href="/"
+          className="flex items-center gap-2 font-bold text-xl text-foreground"
+        >
           <Mountain className="h-7 w-7 gradient-text" />
           <span className="font-headline">Siddas Technologies</span>
         </Link>
