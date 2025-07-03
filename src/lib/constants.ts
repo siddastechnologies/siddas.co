@@ -129,10 +129,10 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'cyber-security',
-    title: 'Cyber Security Training',
+    title: 'IT Security Awareness',
     description: 'Empowering your team to be the first line of defense against cyber threats.',
     icon: ShieldCheck,
-    details: 'Our Cyber Security Awareness Training transforms your employees into a proactive security asset. We equip your team with the critical knowledge to identify, avoid, and report online threats, fostering a resilient, security-conscious culture across your entire organization.',
+    details: 'Our IT Security Awareness Training transforms your employees into a proactive security asset. We equip your team with the critical knowledge to identify, avoid, and report online threats, fostering a resilient, security-conscious culture across your entire organization.',
     useCases: [],
     benefits: [],
     image: '',
@@ -144,7 +144,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'phishing-simulation',
-    title: 'Phishing Simulation',
+    title: 'Anti-phishing Simulation and Awareness',
     description: 'Test and fortify your team’s resilience against sophisticated phishing attacks.',
     icon: Siren,
     details: 'Identify and remediate human-layer security gaps with our realistic phishing simulations. We test your team\'s awareness and readiness against real-world attack vectors, allowing you to strengthen your defenses before a real threat emerges.',
