@@ -57,13 +57,13 @@ const NavLink = ({
 };
 
 const ListItem = React.forwardRef<
-  React.ElementRef<typeof Link>,
-  React.ComponentPropsWithoutRef<typeof Link> & { title: string }
+  React.ElementRef<'a'>,
+  React.ComponentPropsWithoutRef<'a'>
 >(({ className, title, children, ...props }, ref) => {
   return (
     <li>
       <NavigationMenuLink asChild>
-        <Link
+        <a
           ref={ref}
           className={cn(
             'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
@@ -75,7 +75,7 @@ const ListItem = React.forwardRef<
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
-        </Link>
+        </a>
       </NavigationMenuLink>
     </li>
   );
@@ -91,15 +91,10 @@ export default function Header() {
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <Link
-              href="/"
-              className={cn(
-                navigationMenuTriggerStyle(),
-                'bg-transparent text-lg',
-                pathname === '/' ? 'text-primary' : 'text-foreground/80'
-              )}
-            >
-              Home
+            <Link href="/" legacyBehavior passHref>
+              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/' ? 'text-primary' : 'text-foreground/80' )}>
+                Home
+              </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
 
@@ -115,17 +110,22 @@ export default function Header() {
               Services
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <div className="p-4 md:w-[600px] lg:w-[750px]">
-                <div className="grid grid-cols-2 gap-x-6 gap-y-4">
-                  <div className="col-span-2">
-                    <h3 className="font-bold text-lg text-foreground mb-2">
-                      Our Core Services
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      From custom apps to cloud optimization, we provide
-                      solutions to power your growth.
-                    </p>
-                  </div>
+               <ul className="grid w-[600px] gap-3 p-4 md:w-[700px] md:grid-cols-2 lg:w-[800px]">
+                 <li className="col-span-2">
+                    <NavigationMenuLink asChild>
+                      <a
+                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                        href="/services"
+                      >
+                        <div className="mb-2 mt-4 text-lg font-medium">
+                          Our Services
+                        </div>
+                        <p className="text-sm leading-tight text-muted-foreground">
+                         From custom apps to cloud optimization, we provide solutions to power your growth.
+                        </p>
+                      </a>
+                    </NavigationMenuLink>
+                  </li>
                   {SERVICES.filter((s) => !s.external).map((service) => (
                     <ListItem
                       key={service.slug}
@@ -135,13 +135,7 @@ export default function Header() {
                       {service.description}
                     </ListItem>
                   ))}
-                  <div className="col-span-2 border-t border-border mt-2 pt-4">
-                    <ListItem href="/services" title="View All Services">
-                      Explore our full range of technology solutions.
-                    </ListItem>
-                  </div>
-                </div>
-              </div>
+               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
 
@@ -157,17 +151,22 @@ export default function Header() {
               Products
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <div className="p-4 md:w-[600px] lg:w-[750px]">
-                <div className="grid grid-cols-2 gap-x-6 gap-y-4">
-                  <div className="col-span-2">
-                    <h3 className="font-bold text-lg text-foreground mb-2">
-                      Our Software Products
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      Ready-to-deploy solutions to streamline your business
-                      operations.
-                    </p>
-                  </div>
+               <ul className="grid w-[600px] gap-3 p-4 md:w-[700px] md:grid-cols-2 lg:w-[800px]">
+                  <li className="col-span-2">
+                    <NavigationMenuLink asChild>
+                      <a
+                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                        href="/products"
+                      >
+                        <div className="mb-2 mt-4 text-lg font-medium">
+                          Our Software Products
+                        </div>
+                        <p className="text-sm leading-tight text-muted-foreground">
+                          Ready-to-deploy solutions to streamline your business operations.
+                        </p>
+                      </a>
+                    </NavigationMenuLink>
+                  </li>
                   {PRODUCTS.map((product) => (
                     <ListItem
                       key={product.slug}
@@ -177,39 +176,23 @@ export default function Header() {
                       {product.description}
                     </ListItem>
                   ))}
-                  <div className="col-span-2 border-t border-border mt-2 pt-4">
-                    <ListItem href="/products" title="View All Products">
-                      Browse our full suite of software solutions.
-                    </ListItem>
-                  </div>
-                </div>
-              </div>
+               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <Link
-              href="/about"
-              className={cn(
-                navigationMenuTriggerStyle(),
-                'bg-transparent text-lg',
-                pathname === '/about' ? 'text-primary' : 'text-foreground/80'
-              )}
-            >
-              About Us
+            <Link href="/about" legacyBehavior passHref>
+              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/about' ? 'text-primary' : 'text-foreground/80' )}>
+                About Us
+              </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <Link
-              href="/contact"
-              className={cn(
-                navigationMenuTriggerStyle(),
-                'bg-transparent text-lg',
-                pathname === '/contact' ? 'text-primary' : 'text-foreground/80'
-              )}
-            >
-              Contact
+            <Link href="/contact" legacyBehavior passHref>
+              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/contact' ? 'text-primary' : 'text-foreground/80' )}>
+                Contact
+              </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
         </NavigationMenuList>
