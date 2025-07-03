@@ -57,7 +57,7 @@ const NavLink = ({
 };
 
 const ListItem = React.forwardRef<
-  React.ElementRef<'a'>,
+  React.ElementRef<typeof Link>,
   React.ComponentPropsWithoutRef<typeof Link> & { title: string }
 >(({ className, title, children, ...props }, ref) => {
   return (
@@ -91,66 +91,87 @@ export default function Header() {
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuLink asChild>
-              <Link href="/" className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-base', pathname === '/' ? 'text-primary' : 'text-foreground/80' )}>
+             <Link href="/" legacyBehavior={false} passHref>
+              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/' ? 'text-primary' : 'text-foreground/80' )}>
                 Home
-              </Link>
-            </NavigationMenuLink>
+              </NavigationMenuLink>
+            </Link>
           </NavigationMenuItem>
           
           <NavigationMenuItem>
-            <NavigationMenuTrigger className={cn('bg-transparent text-base', pathname.startsWith('/services') ? 'text-primary' : 'text-foreground/80')}>
+            <NavigationMenuTrigger className={cn('bg-transparent text-lg', pathname.startsWith('/services') ? 'text-primary' : 'text-foreground/80')}>
               Services
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                {SERVICES.map((service) => (
-                  <ListItem
-                    key={service.title}
-                    title={service.title}
-                    href={service.href}
-                    target={service.external ? '_blank' : '_self'}
-                  >
-                    {service.description}
-                  </ListItem>
-                ))}
-              </ul>
+              <div className="p-4 md:w-[600px] lg:w-[750px]">
+                <div className="grid grid-cols-2 gap-x-6 gap-y-4">
+                  <div className="col-span-2">
+                     <h3 className="font-bold text-lg text-foreground mb-2">Our Core Services</h3>
+                     <p className="text-sm text-muted-foreground">From custom apps to cloud optimization, we provide solutions to power your growth.</p>
+                  </div>
+                  {SERVICES.filter(s => !s.external).map((service) => (
+                    <ListItem
+                      key={service.slug}
+                      title={service.title}
+                      href={service.href}
+                    >
+                      {service.description}
+                    </ListItem>
+                  ))}
+                  <div className="col-span-2 border-t border-border mt-2 pt-4">
+                     <ListItem href="/services" title="View All Services">
+                       Explore our full range of technology solutions.
+                     </ListItem>
+                  </div>
+                </div>
+              </div>
             </NavigationMenuContent>
           </NavigationMenuItem>
           
           <NavigationMenuItem>
-            <NavigationMenuTrigger className={cn('bg-transparent text-base', pathname.startsWith('/products') ? 'text-primary' : 'text-foreground/80')}>
+            <NavigationMenuTrigger className={cn('bg-transparent text-lg', pathname.startsWith('/products') ? 'text-primary' : 'text-foreground/80')}>
               Products
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                {PRODUCTS.map((product) => (
-                  <ListItem
-                    key={product.title}
-                    title={product.title}
-                    href={`/products/${product.slug}`}
-                  >
-                    {product.description}
-                  </ListItem>
-                ))}
-              </ul>
+               <div className="p-4 md:w-[600px] lg:w-[750px]">
+                 <div className="grid grid-cols-2 gap-x-6 gap-y-4">
+                    <div className="col-span-2">
+                     <h3 className="font-bold text-lg text-foreground mb-2">Our Software Products</h3>
+                     <p className="text-sm text-muted-foreground">Ready-to-deploy solutions to streamline your business operations.</p>
+                  </div>
+                  {PRODUCTS.map((product) => (
+                    <ListItem
+                      key={product.slug}
+                      title={product.title}
+                      href={`/products/${product.slug}`}
+                    >
+                      {product.description}
+                    </ListItem>
+                  ))}
+                  <div className="col-span-2 border-t border-border mt-2 pt-4">
+                     <ListItem href="/products" title="View All Products">
+                       Browse our full suite of software solutions.
+                     </ListItem>
+                  </div>
+                 </div>
+               </div>
             </NavigationMenuContent>
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <NavigationMenuLink asChild>
-              <Link href="/about" className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-base', pathname === '/about' ? 'text-primary' : 'text-foreground/80' )}>
+            <Link href="/about" legacyBehavior={false} passHref>
+              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/about' ? 'text-primary' : 'text-foreground/80' )}>
                 About Us
-              </Link>
-            </NavigationMenuLink>
+              </NavigationMenuLink>
+            </Link>
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <NavigationMenuLink asChild>
-              <Link href="/contact" className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-base', pathname === '/contact' ? 'text-primary' : 'text-foreground/80')}>
+            <Link href="/contact" legacyBehavior={false} passHref>
+              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/contact' ? 'text-primary' : 'text-foreground/80')}>
                 Contact
-              </Link>
-            </NavigationMenuLink>
+              </NavigationMenuLink>
+            </Link>
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
@@ -192,7 +213,7 @@ export default function Header() {
                   <AccordionContent className="pl-4">
                     <div className="flex flex-col gap-2 mt-2">
                       <NavLink href="/services" label="All Services" onClick={() => setIsOpen(false)} className="block text-base py-1" />
-                      {SERVICES.map(s => <Link key={s.title} href={s.href} target={s.external ? '_blank' : '_self'} onClick={() => setIsOpen(false)} className="block text-foreground/70 hover:text-primary text-base py-1">{s.title}</Link>)}
+                      {SERVICES.map(s => <Link key={s.slug} href={s.href} target={s.external ? '_blank' : '_self'} onClick={() => setIsOpen(false)} className="block text-foreground/70 hover:text-primary text-base py-1">{s.title}</Link>)}
                     </div>
                   </AccordionContent>
                 </AccordionItem>
@@ -201,7 +222,7 @@ export default function Header() {
                   <AccordionContent className="pl-4">
                      <div className="flex flex-col gap-2 mt-2">
                        <NavLink href="/products" label="All Products" onClick={() => setIsOpen(false)} className="block text-base py-1" />
-                      {PRODUCTS.map(p => <Link key={p.title} href={`/products/${p.slug}`} onClick={() => setIsOpen(false)} className="block text-foreground/70 hover:text-primary text-base py-1">{p.title}</Link>)}
+                      {PRODUCTS.map(p => <Link key={p.slug} href={`/products/${p.slug}`} onClick={() => setIsOpen(false)} className="block text-foreground/70 hover:text-primary text-base py-1">{p.title}</Link>)}
                     </div>
                   </AccordionContent>
                 </AccordionItem>

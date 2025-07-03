@@ -42,7 +42,7 @@ export default function ServicesPage() {
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((service) => (
-            <div key={service.title} className="gradient-border-card flex flex-col">
+            <div key={service.slug} className="gradient-border-card flex flex-col">
               <div className="flex items-center gap-4 mb-4">
                 <div className="p-3 bg-secondary rounded-full">
                   <service.icon className="h-7 w-7 text-primary" />
