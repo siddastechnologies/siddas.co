@@ -63,20 +63,20 @@ export default function ContactPage() {
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
                   <Mail className="h-6 w-6 text-primary" />
-                  <a href="mailto:contact@siddastech.com" className="hover:text-primary transition-colors">
-                    contact@siddastech.com
+                  <a href="mailto:support@siddas.co" className="hover:text-primary transition-colors">
+                    support@siddas.co
                   </a>
                 </div>
                 <div className="flex items-center gap-4">
                   <Phone className="h-6 w-6 text-primary" />
-                  <a href="tel:+1234567890" className="hover:text-primary transition-colors">
-                    (123) 456-7890
+                  <a href="tel:+917356918351" className="hover:text-primary transition-colors">
+                    +91 7356918351
                   </a>
                 </div>
                 <div className="flex items-start gap-4">
                   <MapPin className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                   <span>
-                    123 Tech Street, Innovation City, 12345
+                    Cholayil, Adoor<br/>Kerala, India
                   </span>
                 </div>
                  <div className="flex items-start gap-4">
