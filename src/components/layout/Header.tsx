@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -92,11 +91,11 @@ export default function Header() {
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuLink asChild>
-              <Link href="/" className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/' ? 'text-primary' : 'text-foreground/80' )}>
+            <Link href="/" asChild>
+              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/' ? 'text-primary' : 'text-foreground/80' )}>
                 Home
-              </Link>
-            </NavigationMenuLink>
+              </NavigationMenuLink>
+            </Link>
           </NavigationMenuItem>
 
           <NavigationMenuItem>
@@ -182,19 +181,19 @@ export default function Header() {
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <NavigationMenuLink asChild>
-              <Link href="/about" className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/about' ? 'text-primary' : 'text-foreground/80' )}>
+            <Link href="/about" asChild>
+              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/about' ? 'text-primary' : 'text-foreground/80' )}>
                 About Us
-              </Link>
-            </NavigationMenuLink>
+              </NavigationMenuLink>
+            </Link>
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <NavigationMenuLink asChild>
-              <Link href="/contact" className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/contact' ? 'text-primary' : 'text-foreground/80' )}>
+            <Link href="/contact" asChild>
+              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/contact' ? 'text-primary' : 'text-foreground/80' )}>
                 Contact
-              </Link>
-            </NavigationMenuLink>
+              </NavigationMenuLink>
+            </Link>
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
