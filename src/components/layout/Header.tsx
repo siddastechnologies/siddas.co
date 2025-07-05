@@ -66,13 +66,13 @@ const ListItem = React.forwardRef<
           href={href || '#'}
           ref={ref as React.Ref<HTMLAnchorElement>}
           className={cn(
-            'group block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground',
+            'group block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary focus:bg-primary focus:text-primary-foreground',
             className
           )}
           {...props}
         >
-          <div className="text-base font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground group-hover:text-primary-foreground/90 group-focus:text-primary-foreground/90">
+          <div className="text-base font-medium leading-none group-hover:text-primary-foreground">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground group-hover:text-primary-foreground/90">
             {children}
           </p>
         </Link>
@@ -91,11 +91,11 @@ export default function Header() {
       <NavigationMenu>
         <NavigationMenuList>
            <NavigationMenuItem>
-            <Link href="/" asChild>
-              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/' ? 'text-primary' : 'text-foreground/80' )}>
+            <NavigationMenuLink asChild>
+              <Link href="/" className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/' ? 'text-primary' : 'text-foreground/80' )}>
                 Home
-              </NavigationMenuLink>
-            </Link>
+              </Link>
+            </NavigationMenuLink>
           </NavigationMenuItem>
 
           <NavigationMenuItem>
@@ -181,19 +181,19 @@ export default function Header() {
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <Link href="/about" asChild>
-              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/about' ? 'text-primary' : 'text-foreground/80' )}>
+            <NavigationMenuLink asChild>
+              <Link href="/about" className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/about' ? 'text-primary' : 'text-foreground/80' )}>
                 About Us
-              </NavigationMenuLink>
-            </Link>
+              </Link>
+            </NavigationMenuLink>
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <Link href="/contact" asChild>
-              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/contact' ? 'text-primary' : 'text-foreground/80' )}>
+            <NavigationMenuLink asChild>
+              <Link href="/contact" className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/contact' ? 'text-primary' : 'text-foreground/80' )}>
                 Contact
-              </NavigationMenuLink>
-            </Link>
+              </Link>
+            </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
