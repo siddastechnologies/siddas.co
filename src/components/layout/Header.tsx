@@ -72,7 +72,7 @@ const ListItem = React.forwardRef<
           {...props}
         >
           <div className="text-base font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground group-hover:text-primary-foreground/80 group-focus:text-primary-foreground/80">
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground group-hover:text-primary-foreground/90 group-focus:text-primary-foreground/90">
             {children}
           </p>
         </Link>
@@ -91,7 +91,7 @@ export default function Header() {
       <NavigationMenu>
         <NavigationMenuList>
            <NavigationMenuItem>
-            <Link href="/" legacyBehavior passHref>
+            <Link href="/" asChild>
               <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/' ? 'text-primary' : 'text-foreground/80' )}>
                 Home
               </NavigationMenuLink>
@@ -181,7 +181,7 @@ export default function Header() {
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <Link href="/about" legacyBehavior passHref>
+            <Link href="/about" asChild>
               <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/about' ? 'text-primary' : 'text-foreground/80' )}>
                 About Us
               </NavigationMenuLink>
@@ -189,7 +189,7 @@ export default function Header() {
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <Link href="/contact" legacyBehavior passHref>
+            <Link href="/contact" asChild>
               <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-lg', pathname === '/contact' ? 'text-primary' : 'text-foreground/80' )}>
                 Contact
               </NavigationMenuLink>
