@@ -9,25 +9,37 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <section className="w-full py-24 md:py-32 lg:py-40">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl font-headline">
-              <span className="block">Empowering Your</span>
-              <span className="block gradient-text mt-2">Digital Transformation</span>
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-muted-foreground max-w-2xl mx-auto">
-              We are a full-cycle software development partner, engineering high-impact digital products and solutions that accelerate innovation and drive tangible business growth. Your vision, our technology.
-            </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Button asChild size="lg">
-                <Link href="/contact">
-                  Schedule a Consultation
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link href="/services">Explore Our Expertise</Link>
-              </Button>
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="text-center md:text-left">
+              <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl font-headline">
+                <span className="block">Empowering Your</span>
+                <span className="block gradient-text mt-2">Digital Transformation</span>
+              </h1>
+              <p className="mt-6 text-lg leading-8 text-muted-foreground max-w-2xl mx-auto md:mx-0">
+                We are a full-cycle software development partner, engineering high-impact digital products and solutions that accelerate innovation and drive tangible business growth. Your vision, our technology.
+              </p>
+              <div className="mt-10 flex items-center justify-center md:justify-start gap-x-6">
+                <Button asChild size="lg">
+                  <Link href="/contact">
+                    Schedule a Consultation
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" size="lg">
+                  <Link href="/services">Explore Our Expertise</Link>
+                </Button>
+              </div>
+            </div>
+            <div>
+              <Image
+                src="https://placehold.co/700x500.png"
+                alt="Digital Transformation"
+                width={700}
+                height={500}
+                data-ai-hint="digital abstract technology"
+                className="rounded-lg shadow-2xl"
+              />
             </div>
           </div>
         </div>

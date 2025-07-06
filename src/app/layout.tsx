@@ -10,6 +10,9 @@ export const metadata: Metadata = {
     template: '%s | Siddas Technologies',
   },
   description: 'Custom Development, E-Commerce, and Cloud Solutions',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
