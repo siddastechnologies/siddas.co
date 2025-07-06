@@ -36,7 +36,7 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-foreground mb-4 font-headline tracking-wider">Services</h4>
             <ul className="space-y-2">
-              {SERVICES.slice(0, 5).map((service) => (
+              {SERVICES.map((service) => (
                 <li key={service.slug}>
                   <Link href={service.href} target={service.external ? '_blank' : '_self'} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                     {service.title}
