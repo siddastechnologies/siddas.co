@@ -44,7 +44,7 @@ export default function Home() {
             </p>
           </div>
           <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {SERVICES.filter(s => !s.external).slice(0, 3).map((service) => (
+            {SERVICES.map((service) => (
               <div key={service.slug} className="gradient-border-card text-center flex flex-col">
                 <div className="flex-grow flex flex-col items-center">
                     <div className="p-4 bg-secondary rounded-full">
@@ -54,18 +54,13 @@ export default function Home() {
                     <p className="mt-2 text-muted-foreground flex-grow">{service.description}</p>
                 </div>
                 <Button asChild variant="link" className="mt-4">
-                    <Link href={service.href}>
-                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
+                  <Link href={service.href} target={service.external ? '_blank' : '_self'}>
+                    {service.external ? 'Visit Site' : 'View Details'} <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
                 </Button>
               </div>
             ))}
           </div>
-           <div className="text-center mt-12">
-                <Button asChild size="lg" variant="outline">
-                    <Link href="/services">View All Services</Link>
-                </Button>
-            </div>
         </div>
       </section>
 
@@ -91,7 +86,7 @@ export default function Home() {
                 </div>
                  <Button asChild variant="link" className="mt-4">
                     <Link href={`/products/${product.slug}`}>
-                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                      View Details <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                 </Button>
               </div>
