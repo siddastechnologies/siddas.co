@@ -121,6 +121,37 @@ export default function CustomDevelopmentPage() {
         </div>
       </section>
 
+      <section className="py-16 md:py-24 bg-background border-t">
+        <div className="container mx-auto px-4 md:px-6">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                    Explore Our Other <span className="gradient-text">Services</span>
+                </h2>
+                <p className="mt-4 text-lg text-muted-foreground">
+                    Discover the full range of our expertise designed to help you succeed.
+                </p>
+            </div>
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                {SERVICES.filter(s => s.slug !== service.slug && !s.external).map((otherService) => (
+                    <div key={otherService.slug} className="gradient-border-card text-center flex flex-col">
+                        <div className="flex-grow flex flex-col items-center">
+                            <div className="p-4 bg-secondary rounded-full">
+                                <otherService.icon className="h-8 w-8 text-primary" />
+                            </div>
+                            <h3 className="mt-6 text-xl font-bold font-headline">{otherService.title}</h3>
+                            <p className="mt-2 text-muted-foreground flex-grow">{otherService.description}</p>
+                        </div>
+                        <Button asChild variant="link" className="mt-4">
+                            <Link href={otherService.href}>
+                                View Details <ArrowRight className="ml-2 h-4 w-4" />
+                            </Link>
+                        </Button>
+                    </div>
+                ))}
+            </div>
+        </div>
+      </section>
+
       <section className="w-full py-20 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto text-center bg-gradient-to-r from-primary to-accent rounded-lg p-12 shadow-2xl">
