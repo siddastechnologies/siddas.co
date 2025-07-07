@@ -79,7 +79,7 @@ export const SERVICES: Service[] = [
     details: 'We don\'t just write code; we architect strategic digital assets designed to solve your core business challenges and unlock new opportunities. Our end-to-end development process, from ideation to deployment and support, ensures your vision is translated into a high-performance application. We specialize in modern technology stacks for both web and mobile, guaranteeing a solution that is both powerful today and adaptable for tomorrow.',
     useCases: ['Enterprise Resource Planning (ERP)', 'Custom CRM Solutions', 'Cross-Platform Mobile Apps', 'Business Process Automation'],
     benefits: ['Perfectly aligned with your workflows', 'Scalable architecture for future growth', 'Full intellectual property ownership', 'Seamless integration with existing systems'],
-    image: 'https://placehold.co/600x400.png',
+    image: '/images/services/custom-development.png',
     dataAiHint: 'software development code',
     href: '/services/custom-development',
     process: devProcess,
@@ -93,7 +93,7 @@ export const SERVICES: Service[] = [
     details: 'We construct powerful e-commerce ecosystems that deliver seamless, engaging shopping experiences to maximize conversions. Our platforms are secure, performant, and built to scale with your growth. From bespoke storefronts to complex B2B ordering systems, we provide comprehensive services that cover every aspect of your digital commerce needs, creating a robust foundation for your online business.',
     useCases: ['B2C Online Retail Stores', 'B2B Wholesale Platforms', 'Subscription & Membership Services', 'Multi-vendor Marketplace Solutions'],
     benefits: ['Secure payment gateway integrations', 'Mobile-first, responsive design', 'Advanced inventory & order management', 'Optimized for search engine visibility (SEO)'],
-    image: 'https://placehold.co/600x400.png',
+    image: '/images/services/ecommerce-development.png',
     dataAiHint: 'online shopping cart',
     href: '/services/ecommerce-development',
     process: devProcess,
@@ -107,7 +107,7 @@ export const SERVICES: Service[] = [
     details: 'Harness the full power of the cloud with our expert consultancy for AWS, Azure, and OCI. We provide more than just migration; we architect, optimize, and manage your cloud infrastructure for peak performance, ironclad security, and maximum cost-efficiency. Our strategic guidance covers initial strategy, migration, FinOps, and security, ensuring your cloud environment is a powerful, resilient, and efficient business asset.',
     useCases: ['Cloud Migration & Modernization', 'Serverless & Microservices Architecture', 'Cloud Security & Compliance Audits', 'FinOps & Cost Optimization'],
     benefits: ['Significant reduction in infrastructure costs', 'Enhanced security posture and compliance', 'Improved scalability and operational resilience', 'Accelerated time-to-market for applications'],
-    image: 'https://placehold.co/600x400.png',
+    image: '/images/services/cloud-consultancy.png',
     dataAiHint: 'cloud infrastructure diagram',
     href: '/services/cloud-consultancy',
     process: devopsProcess,
@@ -121,7 +121,7 @@ export const SERVICES: Service[] = [
     details: 'Accelerate your innovation cycle by integrating development and operations into a seamless, automated workflow. We help you cultivate a mature DevOps culture and implement robust automation to streamline your software delivery pipeline. Our expertise in CI/CD, Infrastructure as Code (IaC), and containerization technologies like Docker and Kubernetes enables you to release higher-quality software, faster and more reliably.',
     useCases: ['CI/CD Pipeline Automation', 'Infrastructure as Code (Terraform, CloudFormation)', 'Containerization & Orchestration (Docker, Kubernetes)', 'Automated Monitoring & Alerting'],
     benefits: ['Dramatically accelerated development cycles', 'Increased deployment frequency and reliability', 'Improved cross-team collaboration', 'Enhanced application quality and system stability'],
-    image: 'https://placehold.co/600x400.png',
+    image: '/images/services/devops-consultancy.png',
     dataAiHint: 'workflow automation chart',
     href: '/services/devops-consultancy',
     process: devopsProcess,
@@ -182,7 +182,7 @@ export const PRODUCTS: Product[] = [
         details: 'Our Human Resource Management System (HRMS) is a comprehensive, all-in-one platform engineered to automate your people operations. Free your HR professionals from manual administrative tasks and empower them to focus on strategic initiatives. From talent acquisition and onboarding to payroll, performance, and offboarding, our intuitive system is the ultimate toolkit for modern workforce management.',
         useCases: ['Centralized Employee Data Management', 'Automated Payroll & Compensation', 'Leave & Attendance Tracking', 'Performance & Goal Management', 'Recruitment & Applicant Tracking'],
         benefits: ['Boosted HR operational efficiency', 'Significant reduction in administrative overhead', 'Enhanced employee experience and engagement', 'Actionable insights from HR analytics'],
-        image: 'https://placehold.co/600x400.png',
+        image: '/images/products/hrms.png',
         dataAiHint: 'human resources dashboard',
         whoIsFor: [
           { title: 'HR Managers', icon: Briefcase },
@@ -190,9 +190,9 @@ export const PRODUCTS: Product[] = [
           { title: 'Growing Startups', icon: Rocket }
         ],
         gallery: [
-          { src: 'https://placehold.co/600x400.png', alt: 'HRMS Dashboard', dataAiHint: 'dashboard analytics chart' },
-          { src: 'https://placehold.co/600x400.png', alt: 'Employee Profile', dataAiHint: 'user profile page' },
-          { src: 'https://placehold.co/600x400.png', alt: 'Payroll Processing', dataAiHint: 'financial data report' },
+          { src: '/images/products/hrms-gallery-1.png', alt: 'HRMS Dashboard', dataAiHint: 'dashboard analytics chart' },
+          { src: '/images/products/hrms-gallery-2.png', alt: 'Employee Profile', dataAiHint: 'user profile page' },
+          { src: '/images/products/hrms-gallery-3.png', alt: 'Payroll Processing', dataAiHint: 'financial data report' },
         ]
     },
     {
@@ -203,7 +203,7 @@ export const PRODUCTS: Product[] = [
         details: 'Revolutionize your library\'s operations with our state-of-the-art Library Management System. Purpose-built for academic, public, and corporate libraries, our system simplifies every facet of library administration, from digital cataloging and circulation to patron management and analytics. Deliver a superior experience for users and empower your staff with powerful, intuitive tools designed for the modern library.',
         useCases: ['Digital Cataloging & Metadata Management', 'Automated Circulation (Check-in/Check-out)', 'Patron & Membership Management', 'Fee & Fine Automation', 'Insightful Reporting & Analytics'],
         benefits: ['Streamlined and simplified library operations', 'Enhanced search and discovery for patrons', 'Accurate, real-time tracking of all resources', 'Effortless generation of reports and statistics'],
-        image: 'https://placehold.co/600x400.png',
+        image: '/images/products/lms.png',
         dataAiHint: 'library books aisle',
         whoIsFor: [
             { title: 'Academic Institutions', icon: GraduationCap },
@@ -211,9 +211,9 @@ export const PRODUCTS: Product[] = [
             { title: 'Corporate Libraries', icon: Building }
         ],
         gallery: [
-          { src: 'https://placehold.co/600x400.png', alt: 'Library Catalog Search', dataAiHint: 'search results page' },
-          { src: 'https://placehold.co/600x400.png', alt: 'Patron Management', dataAiHint: 'user list interface' },
-          { src: 'https://placehold.co/600x400.png', alt: 'Circulation Desk', dataAiHint: 'data entry form' },
+          { src: '/images/products/library-gallery-1.png', alt: 'Library Catalog Search', dataAiHint: 'search results page' },
+          { src: '/images/products/library-gallery-2.png', alt: 'Patron Management', dataAiHint: 'user list interface' },
+          { src: '/images/products/library-gallery-3.png', alt: 'Circulation Desk', dataAiHint: 'data entry form' },
         ]
     },
     {
@@ -224,7 +224,7 @@ export const PRODUCTS: Product[] = [
         details: 'Deliver impactful and engaging e-learning experiences with our flexible Learning Management System (LMS). Ideal for corporate training, educational institutions, and certification programs, our platform provides a complete ecosystem for online learning. Foster a culture of continuous development with an intuitive, scalable, and feature-rich LMS that meets the needs of both learners and administrators.',
         useCases: ['Corporate Training & Employee Development', 'Online Academic Course Delivery', 'Professional Certification Programs', 'Compliance & Onboarding Training'],
         benefits: ['Centralized repository for all learning content', 'Flexible, on-demand access to training', 'Automated progress tracking and reporting', 'Engaging interactive content delivery'],
-        image: 'https://placehold.co/600x400.png',
+        image: '/images/products/learning.png',
         dataAiHint: 'online learning screen',
         whoIsFor: [
             { title: 'Corporate Trainers', icon: BriefcaseBusiness },
@@ -232,9 +232,9 @@ export const PRODUCTS: Product[] = [
             { title: 'Certification Bodies', icon: Award }
         ],
         gallery: [
-          { src: 'https://placehold.co/600x400.png', alt: 'LMS Course Dashboard', dataAiHint: 'course list grid' },
-          { src: 'https://placehold.co/600x400.png', alt: 'Video Lesson Player', dataAiHint: 'video player interface' },
-          { src: 'https://placehold.co/600x400.png', alt: 'Quiz & Assessment', dataAiHint: 'multiple choice quiz' },
+          { src: '/images/products/learning-gallery-1.png', alt: 'LMS Course Dashboard', dataAiHint: 'course list grid' },
+          { src: '/images/products/learning-gallery-2.png', alt: 'Video Lesson Player', dataAiHint: 'video player interface' },
+          { src: '/images/products/learning-gallery-3.png', alt: 'Quiz & Assessment', dataAiHint: 'multiple choice quiz' },
         ]
     }
 ]

@@ -69,7 +69,7 @@ export default function ProductsPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
              <div>
               <Image
-                src="https://placehold.co/600x500.png"
+                src="/images/pages/products-advantage.png"
                 alt="Advantage Illustration"
                 width={600}
                 height={500}

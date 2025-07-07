@@ -116,7 +116,7 @@ export default function ProductDetailPage({ params }: Props) {
               </ul>
             </div>
             <div className="flex justify-center">
-                 <Image src="https://placehold.co/600x500.png" width={600} height={500} data-ai-hint="team diverse users" alt="Target Audience" className="rounded-lg shadow-xl" />
+                 <Image src="/images/pages/product-who-is-for.png" width={600} height={500} data-ai-hint="team diverse users" alt="Target Audience" className="rounded-lg shadow-xl" />
             </div>
           </div>
         </div>
