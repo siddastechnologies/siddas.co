@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import type { Metadata } from 'next';
-import { ArrowRight, CheckCircle, Search, PenTool, Code, Rocket } from 'lucide-react';
+import { ArrowRight, CheckCircle, Search, PenTool, Code, Rocket, MonitorSmartphone, Smartphone, ShoppingCart } from 'lucide-react';
 import { SERVICES } from '@/lib/constants';
 import { notFound } from 'next/navigation';
 import { Button } from '@/components/ui/button';
@@ -17,6 +17,24 @@ export default function CustomDevelopmentPage() {
   if (!service) {
     notFound();
   }
+
+  const focusAreas = [
+    {
+      icon: MonitorSmartphone,
+      title: 'Web Application Development',
+      description: 'We build scalable, secure, and feature-rich web applications, from complex enterprise platforms to dynamic single-page applications, tailored to your business processes.'
+    },
+    {
+      icon: Smartphone,
+      title: 'Mobile Application Development',
+      description: 'We create beautiful and performant native and cross-platform mobile apps for iOS and Android that deliver intuitive user experiences and drive engagement.'
+    },
+    {
+      icon: ShoppingCart,
+      title: 'Custom E-Commerce Solutions',
+      description: 'We build unique transactional experiences by integrating bespoke e-commerce functionality into larger custom platforms, going beyond standard storefronts.'
+    }
+  ]
 
   return (
     <>
@@ -79,6 +97,30 @@ export default function CustomDevelopmentPage() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">
+              Our Custom Development <span className="gradient-text">Focus Areas</span>
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              We specialize in creating tailored solutions across several key domains to meet your specific needs.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {focusAreas.map((area) => (
+               <div key={area.title} className="text-center p-6 bg-card rounded-lg shadow-lg">
+                <div className="inline-block p-4 bg-secondary rounded-full mb-4">
+                  <area.icon className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground">{area.title}</h3>
+                <p className="mt-2 text-muted-foreground">{area.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full py-20 md:py-24 bg-card">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">
               Our Development <span className="gradient-text">Process</span>
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
@@ -99,7 +141,7 @@ export default function CustomDevelopmentPage() {
         </div>
       </section>
 
-      <section className="w-full py-20 md:py-24 bg-card">
+      <section className="w-full py-20 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">
