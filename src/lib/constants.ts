@@ -111,7 +111,7 @@ export const SERVICES: Service[] = [
     dataAiHint: 'cloud infrastructure diagram',
     href: '/services/cloud-consultancy',
     process: devopsProcess,
-    tech: ['AWS (Amazon Web Services)', 'Microsoft Azure', 'Oracle Cloud Infrastructure (OCI)', 'Google Cloud Platform (GCP)']
+    tech: ['AWS', 'Azure', 'OCI', 'Cloudflare', 'Private Cloud']
   },
   {
     slug: 'devops-consultancy',
