@@ -6,6 +6,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { Menu, Mountain, X } from 'lucide-react';
+import Image from 'next/image';
 
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -219,7 +220,7 @@ export default function Header() {
                 className="flex items-center gap-2 font-bold text-lg"
                 onClick={() => setIsOpen(false)}
               >
-                <Mountain className="h-6 w-6 gradient-text" />
+                <Image src="/logo.png" alt="Siddas Technologies Logo" width={28} height={28} />
                 <span className="font-headline">Siddas Technologies</span>
               </Link>
               <SheetTrigger asChild>
@@ -335,7 +336,7 @@ export default function Header() {
           href="/"
           className="flex items-center gap-2 font-bold text-xl text-foreground"
         >
-          <Mountain className="h-7 w-7 gradient-text" />
+          <Image src="/logo.png" alt="Siddas Technologies Logo" width={32} height={32} />
           <span className="font-headline">Siddas Technologies</span>
         </Link>
         {renderDesktopNav()}
