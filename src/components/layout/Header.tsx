@@ -220,7 +220,7 @@ export default function Header() {
                 className="flex items-center gap-2 font-bold text-lg"
                 onClick={() => setIsOpen(false)}
               >
-                <Image src="/logo.png" alt="Siddas Technologies Logo" width={32} height={32} />
+                <Image src="/logo.png" alt="Siddas Technologies Logo" width={150} height={50} />
                 <span className="font-headline">Siddas Technologies</span>
               </Link>
               <SheetTrigger asChild>
@@ -336,7 +336,7 @@ export default function Header() {
           href="/"
           className="flex items-center gap-2 font-bold text-xl text-foreground"
         >
-          <Image src="/logo.png" alt="Siddas Technologies Logo" width={40} height={40} />
+          <Image src="/logo.png" alt="Siddas Technologies Logo" width={150} height={50} />
           <span className="font-headline">Siddas Technologies</span>
         </Link>
         {renderDesktopNav()}
