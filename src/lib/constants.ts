@@ -81,8 +81,8 @@ export const SERVICES: Service[] = [
     benefits: ['Perfectly aligned with your workflows', 'Scalable architecture for future growth', 'Full intellectual property ownership', 'Seamless integration with existing systems'],
     image: '/images/services/custom-development.png',
     dataAiHint: 'software development code',
-    href: 'https://siddas.co/services/custom-development',
-    external: true,
+    href: '/services/custom-development',
+    external: false,
     process: devProcess,
     tech: ['Next.js', 'React Native', 'Node.js', 'Python/Django', 'PostgreSQL', 'MongoDB']
   },
@@ -96,8 +96,8 @@ export const SERVICES: Service[] = [
     benefits: ['Secure payment gateway integrations', 'Mobile-first, responsive design', 'Advanced inventory & order management', 'Optimized for search engine visibility (SEO)'],
     image: '/images/services/ecommerce-development.png',
     dataAiHint: 'online shopping cart',
-    href: 'https://siddas.co/services/ecommerce-development',
-    external: true,
+    href: '/services/ecommerce-development',
+    external: false,
     process: devProcess,
     tech: ['Shopify', 'Magento', 'WooCommerce', 'Headless Commerce', 'Stripe/PayPal Integration']
   },
@@ -111,8 +111,8 @@ export const SERVICES: Service[] = [
     benefits: ['Significant reduction in infrastructure costs', 'Enhanced security posture and compliance', 'Improved scalability and operational resilience', 'Accelerated time-to-market for applications'],
     image: '/images/services/cloud-consultancy.png',
     dataAiHint: 'cloud infrastructure diagram',
-    href: 'https://siddas.co/services/cloud-consultancy',
-    external: true,
+    href: '/services/cloud-consultancy',
+    external: false,
     process: devopsProcess,
     tech: ['AWS', 'Azure', 'OCI', 'Cloudflare', 'Private Cloud']
   },
@@ -126,8 +126,8 @@ export const SERVICES: Service[] = [
     benefits: ['Dramatically accelerated development cycles', 'Increased deployment frequency and reliability', 'Improved cross-team collaboration', 'Enhanced application quality and system stability'],
     image: '/images/services/devops-consultancy.png',
     dataAiHint: 'workflow automation chart',
-    href: 'https://siddas.co/services/devops-consultancy',
-    external: true,
+    href: '/services/devops-consultancy',
+    external: false,
     process: devopsProcess,
     tech: ['Jenkins', 'GitLab CI', 'Docker', 'Kubernetes', 'Terraform', 'Prometheus']
   },
