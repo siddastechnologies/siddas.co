@@ -5,7 +5,7 @@ import Link from 'next/link';
 import * as React from 'react';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { Menu, Mountain, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
 
 import { Button } from '@/components/ui/button';
@@ -221,7 +221,6 @@ export default function Header() {
                 onClick={() => setIsOpen(false)}
               >
                 <Image src="/logo.png" alt="Siddas Technologies Logo" width={150} height={50} />
-                <span className="font-headline">Siddas Technologies</span>
               </Link>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
@@ -337,7 +336,6 @@ export default function Header() {
           className="flex items-center gap-2 font-bold text-xl text-foreground"
         >
           <Image src="/logo.png" alt="Siddas Technologies Logo" width={150} height={50} />
-          <span className="font-headline">Siddas Technologies</span>
         </Link>
         {renderDesktopNav()}
         <div className="hidden md:flex">
