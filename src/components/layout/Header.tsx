@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -126,11 +127,12 @@ export default function Header() {
                       </Link>
                     </NavigationMenuLink>
                   </li>
-                  {SERVICES.filter((s) => !s.external).map((service) => (
+                  {SERVICES.map((service) => (
                     <ListItem
                       key={service.slug}
                       title={service.title}
                       href={service.href}
+                      target={service.external ? '_blank' : '_self'}
                     >
                       {service.description}
                     </ListItem>
