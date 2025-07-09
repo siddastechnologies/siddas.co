@@ -27,6 +27,15 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import { ContactForm } from '@/app/contact/ContactForm';
 
 const NavLink = ({
   href,
@@ -333,15 +342,28 @@ export default function Header() {
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link
           href="/"
-          className="flex items-center gap-2 font-bold text-xl text-foreground"
+          className="flex items-center"
         >
-          <Image src="/logo.png" alt="Siddas Technologies Logo" width={200} height={100} />
+          <Image src="/logo.png" alt="Siddas Technologies Logo" width={150} height={50} />
         </Link>
         {renderDesktopNav()}
         <div className="hidden md:flex">
-          <Button asChild>
-            <Link href="/contact">Get a Quote</Link>
-          </Button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button>Get a Quote</Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[480px]">
+              <DialogHeader>
+                <DialogTitle className="font-headline text-2xl">Request a Quote</DialogTitle>
+                <DialogDescription>
+                  Tell us about your project, and we'll be in touch to discuss the details.
+                </DialogDescription>
+              </DialogHeader>
+              <div className="pt-4">
+                <ContactForm />
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
         {renderMobileNav()}
       </div>
