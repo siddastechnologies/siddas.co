@@ -229,7 +229,7 @@ export default function Header() {
                 className="flex items-center gap-2 font-bold text-lg"
                 onClick={() => setIsOpen(false)}
               >
-                <Image src="https://placehold.co/150x50.png" alt="Siddas Technologies Logo" width={150} height={50} data-ai-hint="logo mountain" />
+                <Image src="/logo.png" alt="Siddas Technologies Logo" width={150} height={50} />
               </Link>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
@@ -344,7 +344,7 @@ export default function Header() {
           href="/"
           className="flex items-center"
         >
-          <Image src="https://placehold.co/150x50.png" alt="Siddas Technologies Logo" width={150} height={50} data-ai-hint="logo mountain" />
+          <Image src="/logo.png" alt="Siddas Technologies Logo" width={150} height={50} />
         </Link>
         {renderDesktopNav()}
         <div className="hidden md:flex">

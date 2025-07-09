@@ -137,7 +137,7 @@ export default function Home() {
             </div>
             <div>
               <Image
-                src="https://placehold.co/600x600.png"
+                src="/images/page/team-collaboration.png"
                 alt="Team Collaboration"
                 width={600}
                 height={600}
