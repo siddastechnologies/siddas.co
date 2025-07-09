@@ -60,7 +60,7 @@ export default function Home() {
             </p>
           </div>
           <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {SERVICES.filter(s => !s.external).map((service) => (
+            {SERVICES.map((service) => (
               <Link
                 key={service.slug}
                 href={service.href}
