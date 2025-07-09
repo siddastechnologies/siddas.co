@@ -33,11 +33,10 @@ export default function Home() {
             </div>
             <div>
               <Image
-                src="https://placehold.co/700x500.png"
+                src="/images/page/hero.png"
                 alt="Digital Transformation"
                 width={700}
                 height={500}
-                data-ai-hint="digital abstract technology"
                 className="rounded-lg shadow-2xl"
               />
             </div>
