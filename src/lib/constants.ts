@@ -179,6 +179,27 @@ type Product = {
 
 export const PRODUCTS: Product[] = [
     {
+        slug: 'erp-system',
+        title: 'ERP System',
+        description: 'A comprehensive solution to manage and integrate all core business processes.',
+        icon: Layers,
+        details: 'Our Enterprise Resource Planning (ERP) system provides a unified platform to manage and integrate all core business functions—from finance and HR to manufacturing and supply chain. Streamline operations, improve data visibility, and make smarter, data-driven decisions with a single source of truth for your entire organization.',
+        useCases: ['Financial Management & Accounting', 'Supply Chain & Inventory Control', 'Manufacturing & Production Planning', 'Human Capital Management', 'Customer Relationship Management (CRM)'],
+        benefits: ['Unified view of business operations', 'Improved operational efficiency and automation', 'Enhanced data accuracy and reporting', 'Greater agility and better decision-making'],
+        image: '/images/products/erp.png',
+        dataAiHint: 'erp dashboard interface',
+        whoIsFor: [
+          { title: 'Manufacturing Companies', icon: Building },
+          { title: 'Distribution & Retail', icon: ShoppingCart },
+          { title: 'Service-Based Businesses', icon: BriefcaseBusiness }
+        ],
+        gallery: [
+          { src: '/images/products/erp-gallery-1.png', alt: 'ERP Financials Dashboard', dataAiHint: 'financial dashboard analytics' },
+          { src: '/images/products/erp-gallery-2.png', alt: 'Inventory Management', dataAiHint: 'warehouse inventory list' },
+          { src: '/images/products/erp-gallery-3.png', alt: 'HR Module', dataAiHint: 'employee records interface' },
+        ]
+    },
+    {
         slug: 'hrms',
         title: 'HR Management System',
         description: 'An integrated suite to automate and streamline your entire employee lifecycle.',
