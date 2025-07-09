@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -6,6 +7,10 @@ import { ArrowRight, CheckCircle } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Home() {
+  const securityServices = SERVICES.filter(
+    s => s.slug === 'cyber-security' || s.slug === 'phishing-simulation'
+  );
+
   return (
     <div className="flex flex-col">
       <section className="w-full py-24 md:py-32 lg:py-40">
@@ -55,7 +60,7 @@ export default function Home() {
             </p>
           </div>
           <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {SERVICES.map((service) => (
+            {SERVICES.filter(s => !s.external).map((service) => (
               <div key={service.slug} className="gradient-border-card text-center flex flex-col">
                 <div className="flex-grow flex flex-col items-center">
                     <div className="p-4 bg-secondary rounded-full">
@@ -144,6 +149,49 @@ export default function Home() {
                 data-ai-hint="teamwork collaboration"
                 className="rounded-lg shadow-2xl"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full py-20 md:py-24 bg-card">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="md:order-last">
+                 <Image
+                    src="/images/page/security-awareness.png"
+                    alt="Cybersecurity Awareness"
+                    width={600}
+                    height={500}
+                    data-ai-hint="cybersecurity lock shield"
+                    className="rounded-lg shadow-2xl"
+                />
+            </div>
+            <div className="md:order-first">
+                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">
+                    Strengthen Your <span className="gradient-text">Human Firewall</span>
+                </h2>
+                <p className="mt-4 text-lg text-muted-foreground">
+                    Your employees are your first line of defense. Our specialized training programs empower your team to recognize, avoid, and report cyber threats, transforming your workforce into a powerful security asset.
+                </p>
+                <div className="mt-8 space-y-6">
+                    {securityServices.map((service) => (
+                        <div key={service.slug} className="flex items-start gap-4">
+                            <div className="p-3 bg-secondary rounded-full mt-1">
+                                <service.icon className="h-6 w-6 text-primary" />
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-semibold">{service.title}</h3>
+                                <p className="text-muted-foreground">{service.description}</p>
+                                <Button asChild variant="link" className="p-0 h-auto mt-1 text-primary">
+                                  <Link href={service.href} target="_blank" rel="noopener noreferrer">
+                                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                                  </Link>
+                                </Button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
           </div>
         </div>
