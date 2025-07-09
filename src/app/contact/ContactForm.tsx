@@ -11,14 +11,23 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { SERVICES, PRODUCTS } from '@/lib/constants';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
   email: z.string().email({ message: 'Invalid email address.' }),
+  subject: z.string().min(5, { message: 'Subject must be at least 5 characters.' }),
+  interest: z.string().optional(),
   message: z.string().min(10, { message: 'Message must be at least 10 characters.' }),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
+
+const interests = [
+  ...SERVICES.map(s => ({ value: s.slug, label: `Service: ${s.title}` })),
+  ...PRODUCTS.map(p => ({ value: p.slug, label: `Product: ${p.title}` }))
+];
 
 export function ContactForm() {
   const [isPending, setIsPending] = useState(false);
@@ -26,7 +35,7 @@ export function ContactForm() {
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
-    defaultValues: { name: '', email: '', message: '' },
+    defaultValues: { name: '', email: '', subject: '', interest: '', message: '' },
   });
 
   async function onSubmit(data: ContactFormValues) {
@@ -78,6 +87,44 @@ export function ContactForm() {
             </FormItem>
           )}
         />
+         <FormField
+          control={form.control}
+          name="subject"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Subject</FormLabel>
+              <FormControl>
+                <Input placeholder="e.g., Project Inquiry" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="interest"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Interested In (Optional)</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a service or product" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="general">General Inquiry</SelectItem>
+                  {interests.map(item => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         <FormField
           control={form.control}
           name="message"
@@ -85,7 +132,7 @@ export function ContactForm() {
             <FormItem>
               <FormLabel>Message</FormLabel>
               <FormControl>
-                <Textarea placeholder="How can we help you?" {...field} rows={6} />
+                <Textarea placeholder="How can we help you?" {...field} rows={4} />
               </FormControl>
               <FormMessage />
             </FormItem>

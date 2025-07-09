@@ -3,12 +3,16 @@ import * as React from 'react';
 interface ContactFormEmailProps {
   name: string;
   email: string;
+  subject: string;
+  interest?: string;
   message: string;
 }
 
 export const ContactFormEmail: React.FC<Readonly<ContactFormEmailProps>> = ({
   name,
   email,
+  subject,
+  interest,
   message,
 }) => (
   <html lang="en">
@@ -23,7 +27,7 @@ export const ContactFormEmail: React.FC<Readonly<ContactFormEmailProps>> = ({
           </p>
           <hr style={{ borderColor: '#e6ebf1', margin: '20px 0' }} />
           <h2 style={{ fontSize: '18px', fontWeight: '700', color: '#484848' }}>
-            Sender Details
+            Submission Details
           </h2>
           <p style={{ fontSize: '16px', color: '#484848', margin: '5px 0' }}>
             <strong>Name:</strong> {name}
@@ -31,6 +35,14 @@ export const ContactFormEmail: React.FC<Readonly<ContactFormEmailProps>> = ({
           <p style={{ fontSize: '16px', color: '#484848', margin: '5px 0' }}>
             <strong>Email:</strong> <a href={`mailto:${email}`} style={{ color: '#007bff', textDecoration: 'none' }}>{email}</a>
           </p>
+          <p style={{ fontSize: '16px', color: '#484848', margin: '5px 0' }}>
+            <strong>Subject:</strong> {subject}
+          </p>
+          {interest && (
+            <p style={{ fontSize: '16px', color: '#484848', margin: '5px 0' }}>
+              <strong>Interested In:</strong> {interest}
+            </p>
+          )}
           <hr style={{ borderColor: '#e6ebf1', margin: '20px 0' }} />
           <h2 style={{ fontSize: '18px', fontWeight: '700', color: '#484848' }}>
             Message
