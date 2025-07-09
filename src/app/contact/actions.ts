@@ -44,7 +44,7 @@ export async function submitContactForm(
 
   try {
     await resend.emails.send({
-      from: 'Siddas Contact Form <onboarding@resend.dev>',
+      from: 'Siddas Contact Form <info@siddas.co>',
       to: 'support@siddas.co',
       subject: `New message from ${name} via contact form`,
       reply_to: email,
