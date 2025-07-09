@@ -335,7 +335,7 @@ export default function Header() {
           href="/"
           className="flex items-center gap-2 font-bold text-xl text-foreground"
         >
-          <Image src="/logo.png" alt="Siddas Technologies Logo" width={150} height={50} />
+          <Image src="/logo.png" alt="Siddas Technologies Logo" width={200} height={100} />
         </Link>
         {renderDesktopNav()}
         <div className="hidden md:flex">
