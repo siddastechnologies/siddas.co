@@ -42,20 +42,25 @@ export default function ServicesPage() {
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((service) => (
-            <div key={service.slug} className="gradient-border-card flex flex-col">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 bg-secondary rounded-full">
-                  <service.icon className="h-7 w-7 text-primary" />
+            <Link
+              key={service.slug}
+              href={service.href}
+              target={service.external ? '_blank' : '_self'}
+              className="group gradient-border-card flex flex-col no-underline text-current"
+            >
+              <div className="flex-grow">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="p-3 bg-secondary rounded-full">
+                    <service.icon className="h-7 w-7 text-primary" />
+                  </div>
+                  <h2 className="font-bold text-xl text-foreground">{service.title}</h2>
                 </div>
-                <h2 className="font-bold text-xl text-foreground">{service.title}</h2>
+                <p className="text-muted-foreground mb-6">{service.description}</p>
               </div>
-              <p className="text-muted-foreground mb-6 flex-grow">{service.description}</p>
-              <Button asChild variant="link" className="self-start p-0 h-auto">
-                <Link href={service.href} target={service.external ? '_blank' : '_self'}>
-                  {service.external ? 'Visit Site' : 'View Details'} <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
+              <div className="mt-auto text-primary font-medium flex items-center self-start group-hover:underline">
+                {service.external ? 'Visit Site' : 'View Details'} <ArrowRight className="ml-2 h-4 w-4" />
+              </div>
+            </Link>
           ))}
         </div>
       </div>

@@ -61,7 +61,12 @@ export default function Home() {
           </div>
           <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICES.filter(s => !s.external).map((service) => (
-              <div key={service.slug} className="gradient-border-card text-center flex flex-col">
+              <Link
+                key={service.slug}
+                href={service.href}
+                target={service.external ? '_blank' : '_self'}
+                className="group gradient-border-card text-center flex flex-col no-underline text-current"
+              >
                 <div className="flex-grow flex flex-col items-center">
                     <div className="p-4 bg-secondary rounded-full">
                       <service.icon className="h-8 w-8 text-primary" />
@@ -69,12 +74,10 @@ export default function Home() {
                     <h3 className="mt-6 text-xl font-bold font-headline">{service.title}</h3>
                     <p className="mt-2 text-muted-foreground flex-grow">{service.description}</p>
                 </div>
-                <Button asChild variant="link" className="mt-4">
-                  <Link href={service.href} target={service.external ? '_blank' : '_self'}>
-                    {service.external ? 'Visit Site' : 'View Details'} <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
+                <div className="mt-4 text-primary font-medium flex items-center justify-center group-hover:underline">
+                  {service.external ? 'Visit Site' : 'View Details'} <ArrowRight className="ml-2 h-4 w-4" />
+                </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -92,7 +95,11 @@ export default function Home() {
           </div>
           <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {PRODUCTS.slice(0, 3).map((product) => (
-              <div key={product.slug} className="gradient-border-card text-center flex flex-col">
+              <Link
+                key={product.slug}
+                href={`/products/${product.slug}`}
+                className="group gradient-border-card text-center flex flex-col no-underline text-current"
+              >
                 <div className="flex-grow flex flex-col items-center">
                     <div className="p-4 bg-secondary rounded-full">
                       <product.icon className="h-8 w-8 text-primary" />
@@ -100,12 +107,10 @@ export default function Home() {
                     <h3 className="mt-6 text-xl font-bold font-headline">{product.title}</h3>
                     <p className="mt-2 text-muted-foreground flex-grow">{product.description}</p>
                 </div>
-                 <Button asChild variant="link" className="mt-4">
-                    <Link href={`/products/${product.slug}`}>
-                      View Details <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                </Button>
-              </div>
+                <div className="mt-4 text-primary font-medium flex items-center justify-center group-hover:underline">
+                    View Details <ArrowRight className="ml-2 h-4 w-4" />
+                </div>
+              </Link>
             ))}
           </div>
            <div className="text-center mt-12">

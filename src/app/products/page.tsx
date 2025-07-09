@@ -43,7 +43,11 @@ export default function ProductsPage() {
 
         <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-2">
           {PRODUCTS.map((product) => (
-            <div key={product.slug} className="gradient-border-card flex flex-col">
+            <Link
+              key={product.slug}
+              href={`/products/${product.slug}`}
+              className="group gradient-border-card flex flex-col no-underline text-current"
+            >
               <div className="flex items-center gap-4 mb-4">
                  <div className="p-3 bg-secondary rounded-full">
                   <product.icon className="h-8 w-8 text-primary" />
@@ -54,12 +58,10 @@ export default function ProductsPage() {
                 </div>
               </div>
               <p className="text-muted-foreground mb-6 flex-grow mt-2">{product.details.substring(0, 150)}...</p>
-              <Button asChild className="self-start">
-                <Link href={`/products/${product.slug}`}>
-                  View Details <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
+              <div className="text-primary font-medium flex items-center self-start group-hover:underline">
+                View Details <ArrowRight className="ml-2 h-4 w-4" />
+              </div>
+            </Link>
           ))}
         </div>
       </div>

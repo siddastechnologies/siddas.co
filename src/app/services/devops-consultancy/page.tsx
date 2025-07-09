@@ -133,7 +133,11 @@ export default function DevOpsConsultancyPage() {
             </div>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {SERVICES.filter(s => s.slug !== service.slug && !s.external).map((otherService) => (
-                    <div key={otherService.slug} className="gradient-border-card text-center flex flex-col">
+                    <Link
+                      key={otherService.slug}
+                      href={otherService.href}
+                      className="group gradient-border-card text-center flex flex-col no-underline text-current"
+                    >
                         <div className="flex-grow flex flex-col items-center">
                             <div className="p-4 bg-secondary rounded-full">
                                 <otherService.icon className="h-8 w-8 text-primary" />
@@ -141,12 +145,10 @@ export default function DevOpsConsultancyPage() {
                             <h3 className="mt-6 text-xl font-bold font-headline">{otherService.title}</h3>
                             <p className="mt-2 text-muted-foreground flex-grow">{otherService.description}</p>
                         </div>
-                        <Button asChild variant="link" className="mt-4">
-                            <Link href={otherService.href}>
-                                View Details <ArrowRight className="ml-2 h-4 w-4" />
-                            </Link>
-                        </Button>
-                    </div>
+                        <div className="mt-4 text-primary font-medium flex items-center justify-center group-hover:underline">
+                            View Details <ArrowRight className="ml-2 h-4 w-4" />
+                        </div>
+                    </Link>
                 ))}
             </div>
         </div>

@@ -162,7 +162,11 @@ export default function ProductDetailPage({ params }: Props) {
             </div>
             <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2">
                 {PRODUCTS.filter(p => p.slug !== product.slug).map((otherProduct) => (
-                    <div key={otherProduct.slug} className="gradient-border-card text-center flex flex-col">
+                    <Link
+                      key={otherProduct.slug}
+                      href={`/products/${otherProduct.slug}`}
+                      className="group gradient-border-card text-center flex flex-col no-underline text-current"
+                    >
                         <div className="flex-grow flex flex-col items-center">
                             <div className="p-4 bg-secondary rounded-full">
                                 <otherProduct.icon className="h-8 w-8 text-primary" />
@@ -170,12 +174,10 @@ export default function ProductDetailPage({ params }: Props) {
                             <h3 className="mt-6 text-xl font-bold font-headline">{otherProduct.title}</h3>
                             <p className="mt-2 text-muted-foreground flex-grow">{otherProduct.description}</p>
                         </div>
-                        <Button asChild variant="link" className="mt-4">
-                            <Link href={`/products/${otherProduct.slug}`}>
-                                View Details <ArrowRight className="ml-2 h-4 w-4" />
-                            </Link>
-                        </Button>
-                    </div>
+                        <div className="mt-4 text-primary font-medium flex items-center justify-center group-hover:underline">
+                            View Details <ArrowRight className="ml-2 h-4 w-4" />
+                        </div>
+                    </Link>
                 ))}
             </div>
         </div>
