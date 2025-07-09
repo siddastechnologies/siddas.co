@@ -33,7 +33,7 @@ export default function Home() {
             </div>
             <div>
               <Image
-                src="/images/pages/home-hero.png"
+                src="https://placehold.co/700x500.png"
                 alt="Digital Transformation"
                 width={700}
                 height={500}
@@ -138,7 +138,7 @@ export default function Home() {
             </div>
             <div>
               <Image
-                src="/images/pages/home-collaboration.png"
+                src="https://placehold.co/600x600.png"
                 alt="Team Collaboration"
                 width={600}
                 height={600}

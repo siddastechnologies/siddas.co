@@ -65,7 +65,7 @@ export default function AboutPage() {
             </div>
             <div>
               <Image
-                src="/images/pages/about-us-team.png"
+                src="https://placehold.co/600x400.png"
                 alt="Siddas Technologies Team in a meeting"
                 width={600}
                 height={400}
