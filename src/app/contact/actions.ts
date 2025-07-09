@@ -1,6 +1,10 @@
 'use server';
 
 import { z } from 'zod';
+import { Resend } from 'resend';
+import { ContactFormEmail } from '@/emails/contact-form-email';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -36,14 +40,26 @@ export async function submitContactForm(
     };
   }
 
-  // Simulate network delay
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  const { name, email, message } = validatedFields.data;
 
-  // In a real application, you would send an email or save to a database here.
-  console.log('Form submitted successfully:', validatedFields.data);
+  try {
+    await resend.emails.send({
+      from: 'Siddas Contact Form <onboarding@resend.dev>',
+      to: 'support@siddas.co',
+      subject: `New message from ${name} via contact form`,
+      reply_to: email,
+      react: ContactFormEmail({ name, email, message }),
+    });
 
-  return {
-    message: 'Thank you for your message! We will get back to you soon.',
-    success: true,
-  };
+    return {
+      message: 'Thank you for your message! We will get back to you soon.',
+      success: true,
+    };
+  } catch (error) {
+    console.error('Email sending failed:', error);
+    return {
+      message: 'Sorry, we encountered an error while sending your message. Please try again later.',
+      success: false,
+    };
+  }
 }
