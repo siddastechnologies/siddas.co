@@ -9,7 +9,7 @@ import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
 
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import { NAV_LINKS, SERVICES, PRODUCTS } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import {
@@ -222,7 +222,8 @@ export default function Header() {
           </Button>
         </SheetTrigger>
         <SheetContent side="top" className="w-full p-0 h-full flex flex-col">
-          <div className="flex items-center justify-between p-4 border-b">
+          <SheetHeader className="flex flex-row items-center justify-between p-4 border-b">
+            <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
             <Link
               href="/"
               className="flex items-center gap-2 font-bold text-lg"
@@ -230,11 +231,13 @@ export default function Header() {
             >
               <Image src="/logo.png" alt="Siddas Technologies Logo" width={150} height={50} />
             </Link>
-            <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
-              <X className="h-6 w-6" />
-              <span className="sr-only">Close menu</span>
-            </Button>
-          </div>
+            <SheetClose asChild>
+              <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
+                <X className="h-6 w-6" />
+                <span className="sr-only">Close menu</span>
+              </Button>
+            </SheetClose>
+          </SheetHeader>
           <nav className="flex-grow p-4 overflow-y-auto">
             <NavLink
               href="/"
