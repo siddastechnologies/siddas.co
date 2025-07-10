@@ -44,7 +44,7 @@ const NavLink = ({
   onClick,
 }: {
   href: string;
-  label: string;
+  label:string;
   className?: string;
   onClick?: () => void;
 }) => {
@@ -221,116 +221,113 @@ export default function Header() {
             <span className="sr-only">Toggle navigation menu</span>
           </Button>
         </SheetTrigger>
-        <SheetContent side="left" className="w-full max-w-sm p-0">
-          <div className="flex flex-col h-full">
-            <div className="flex items-center justify-between p-4 border-b">
-              <Link
-                href="/"
-                className="flex items-center gap-2 font-bold text-lg"
-                onClick={() => setIsOpen(false)}
-              >
-                <Image src="/logo.png" alt="Siddas Technologies Logo" width={150} height={50} />
-              </Link>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  <X className="h-6 w-6" />
-                </Button>
-              </SheetTrigger>
-            </div>
-            <nav className="flex-grow p-4">
-              <NavLink
-                href="/"
-                label="Home"
-                onClick={() => setIsOpen(false)}
-                className="block text-lg py-2"
-              />
+        <SheetContent side="top" className="w-full p-0 h-full flex flex-col">
+          <div className="flex items-center justify-between p-4 border-b">
+            <Link
+              href="/"
+              className="flex items-center gap-2 font-bold text-lg"
+              onClick={() => setIsOpen(false)}
+            >
+              <Image src="/logo.png" alt="Siddas Technologies Logo" width={150} height={50} />
+            </Link>
+            <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
+              <X className="h-6 w-6" />
+              <span className="sr-only">Close menu</span>
+            </Button>
+          </div>
+          <nav className="flex-grow p-4 overflow-y-auto">
+            <NavLink
+              href="/"
+              label="Home"
+              onClick={() => setIsOpen(false)}
+              className="block text-lg py-2"
+            />
 
-              <Accordion type="single" collapsible className="w-full">
-                <AccordionItem value="services" className="border-b-0">
-                  <AccordionTrigger
-                    className={cn(
-                      'text-lg font-medium hover:no-underline transition-colors hover:text-primary py-2',
-                      pathname.startsWith('/services')
-                        ? 'text-primary'
-                        : 'text-foreground/80'
-                    )}
-                  >
-                    Services
-                  </AccordionTrigger>
-                  <AccordionContent className="pl-4">
-                    <div className="flex flex-col gap-2 mt-2">
-                      <NavLink
-                        href="/services"
-                        label="All Services"
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="services" className="border-b-0">
+                <AccordionTrigger
+                  className={cn(
+                    'text-lg font-medium hover:no-underline transition-colors hover:text-primary py-2',
+                    pathname.startsWith('/services')
+                      ? 'text-primary'
+                      : 'text-foreground/80'
+                  )}
+                >
+                  Services
+                </AccordionTrigger>
+                <AccordionContent className="pl-4">
+                  <div className="flex flex-col gap-2 mt-2">
+                    <NavLink
+                      href="/services"
+                      label="All Services"
+                      onClick={() => setIsOpen(false)}
+                      className="block text-base py-1"
+                    />
+                    {SERVICES.map((s) => (
+                      <Link
+                        key={s.slug}
+                        href={s.href}
+                        target={s.external ? '_blank' : '_self'}
                         onClick={() => setIsOpen(false)}
-                        className="block text-base py-1"
-                      />
-                      {SERVICES.map((s) => (
-                        <Link
-                          key={s.slug}
-                          href={s.href}
-                          target={s.external ? '_blank' : '_self'}
-                          onClick={() => setIsOpen(false)}
-                          className="block text-foreground/70 hover:text-primary text-base py-1"
-                        >
-                          {s.title}
-                        </Link>
-                      ))}
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="products" className="border-b-0">
-                  <AccordionTrigger
-                    className={cn(
-                      'text-lg font-medium hover:no-underline transition-colors hover:text-primary py-2',
-                      pathname.startsWith('/products')
-                        ? 'text-primary'
-                        : 'text-foreground/80'
-                    )}
-                  >
-                    Products
-                  </AccordionTrigger>
-                  <AccordionContent className="pl-4">
-                    <div className="flex flex-col gap-2 mt-2">
-                      <NavLink
-                        href="/products"
-                        label="All Products"
+                        className="block text-foreground/70 hover:text-primary text-base py-1"
+                      >
+                        {s.title}
+                      </Link>
+                    ))}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="products" className="border-b-0">
+                <AccordionTrigger
+                  className={cn(
+                    'text-lg font-medium hover:no-underline transition-colors hover:text-primary py-2',
+                    pathname.startsWith('/products')
+                      ? 'text-primary'
+                      : 'text-foreground/80'
+                  )}
+                >
+                  Products
+                </AccordionTrigger>
+                <AccordionContent className="pl-4">
+                  <div className="flex flex-col gap-2 mt-2">
+                    <NavLink
+                      href="/products"
+                      label="All Products"
+                      onClick={() => setIsOpen(false)}
+                      className="block text-base py-1"
+                    />
+                    {PRODUCTS.map((p) => (
+                      <Link
+                        key={p.slug}
+                        href={`/products/${p.slug}`}
                         onClick={() => setIsOpen(false)}
-                        className="block text-base py-1"
-                      />
-                      {PRODUCTS.map((p) => (
-                        <Link
-                          key={p.slug}
-                          href={`/products/${p.slug}`}
-                          onClick={() => setIsOpen(false)}
-                          className="block text-foreground/70 hover:text-primary text-base py-1"
-                        >
-                          {p.title}
-                        </Link>
-                      ))}
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
+                        className="block text-foreground/70 hover:text-primary text-base py-1"
+                      >
+                        {p.title}
+                      </Link>
+                    ))}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
 
-              <NavLink
-                href="/about"
-                label="About Us"
-                onClick={() => setIsOpen(false)}
-                className="block text-lg py-2"
-              />
-              <NavLink
-                href="/contact"
-                label="Contact"
-                onClick={() => setIsOpen(false)}
-                className="block text-lg py-2"
-              />
-            </nav>
-            <div className="p-4 border-t">
-              <Button asChild size="lg" className="w-full">
-                <Link href="/contact">Schedule a Consultation</Link>
-              </Button>
-            </div>
+            <NavLink
+              href="/about"
+              label="About Us"
+              onClick={() => setIsOpen(false)}
+              className="block text-lg py-2"
+            />
+            <NavLink
+              href="/contact"
+              label="Contact"
+              onClick={() => setIsOpen(false)}
+              className="block text-lg py-2"
+            />
+          </nav>
+          <div className="p-4 border-t">
+            <Button asChild size="lg" className="w-full" onClick={() => setIsOpen(false)}>
+              <Link href="/contact">Schedule a Consultation</Link>
+            </Button>
           </div>
         </SheetContent>
       </Sheet>
