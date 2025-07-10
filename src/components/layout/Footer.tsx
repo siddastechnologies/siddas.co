@@ -66,8 +66,8 @@ export default function Footer() {
             &copy; {currentYear} Siddas Technologies. All rights reserved.
           </p>
           <div className="flex gap-4 mt-4 sm:mt-0">
-             <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Privacy Policy</Link>
-             <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Terms of Service</Link>
+             <Link href="/privacy-policy" className="text-sm text-muted-foreground hover:text-primary transition-colors">Privacy Policy</Link>
+             <Link href="/terms-of-service" className="text-sm text-muted-foreground hover:text-primary transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
