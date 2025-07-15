@@ -5,11 +5,32 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://siddas.co'),
   title: {
-    default: 'Siddas Technologies',
+    default: 'Siddas Technologies - Custom Software, Cloud, & E-Commerce',
     template: '%s | Siddas Technologies',
   },
-  description: 'Custom Development, E-Commerce, and Cloud Solutions',
+  description: 'Siddas Technologies delivers high-impact digital products. We are a full-cycle software development partner specializing in custom applications, e-commerce platforms, and cloud consultancy.',
+  keywords: ['custom software development', 'next.js development', 'cloud consultancy', 'devops services', 'e-commerce solutions', 'siddas technologies'],
+  openGraph: {
+    title: 'Siddas Technologies - Custom Software, Cloud, & E-Commerce',
+    description: 'Your partner in digital transformation. We build powerful, scalable software solutions.',
+    url: 'https://siddas.co',
+    siteName: 'Siddas Technologies',
+    locale: 'en_US',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: '/favicon.ico',
   },
