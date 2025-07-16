@@ -5,8 +5,6 @@ import { Resend } from 'resend';
 import { ContactFormEmail } from '@/emails/contact-form-email';
 import { SERVICES, PRODUCTS } from '@/lib/constants';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
   email: z.string().email({ message: 'Invalid email address.' }),
@@ -55,10 +53,12 @@ export async function submitContactForm(
     };
   }
 
-  const { name, email, subject, interest, message } = validatedFields.data;
-  const interestLabel = getInterestLabel(interest);
-
   try {
+    // Initialize Resend inside the function for serverless environments
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const { name, email, subject, interest, message } = validatedFields.data;
+    const interestLabel = getInterestLabel(interest);
+    
     await resend.emails.send({
       from: 'Siddas Contact Form <info@siddas.co>',
       to: 'support@siddas.co',
